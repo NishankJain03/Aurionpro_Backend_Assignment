@@ -1,0 +1,27 @@
+package com.aurionpro.behavioural.state.model;
+
+public class Ordered implements IPacket{
+
+	@Override
+	public boolean hasNext() {
+		return true;
+	}
+
+	@Override
+	public IPacket next() {
+		return new Shift();
+	}
+
+	@Override
+	public void previous(Packet packet) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void current(Packet packet) {
+		return this
+		
+	}
+
+}

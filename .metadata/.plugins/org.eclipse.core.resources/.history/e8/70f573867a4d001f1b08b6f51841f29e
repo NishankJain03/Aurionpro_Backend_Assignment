@@ -1,0 +1,10 @@
+package com.aurionpro.srp.violations.test;
+
+public class InvoiceTest {
+
+	public static void main(String[] args) {
+		Invoice invoices = new Invoice("123", "Invoice of Electronics", 234000, 15%);
+
+	}
+
+}

@@ -1,0 +1,29 @@
+package com.aurionpro.behavioural.state.model;
+
+public class Shift implements IPacket{
+
+	@Override
+	public boolean hasNext() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public IPacket next() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void previous(Packet packet) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void current(Packet packet) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

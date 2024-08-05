@@ -1,0 +1,15 @@
+package com.aurionpro.dip.violation.model;
+
+public class TaxCalculator {
+	private DBLogger dblogger;
+
+	public TaxCalculator(DBLogger dblogger) {
+		super();
+		this.dblogger = dblogger;
+	}
+	
+	public int calculateTax() {
+		
+	}
+	
+}

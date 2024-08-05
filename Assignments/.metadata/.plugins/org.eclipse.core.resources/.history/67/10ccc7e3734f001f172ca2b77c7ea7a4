@@ -1,0 +1,18 @@
+package com.aurionpro.test;
+
+import com.aurionpro.model.Car;
+
+public class CarTest {
+
+	public static void main(String[] args) {
+		Car car = new Car.CarBuilder("V8", 4)
+						 .setAirConditioning(true)
+						 .setSunRoof(true)
+						 .setGPS(true)
+						 .build()
+						
+						
+
+	}
+
+}

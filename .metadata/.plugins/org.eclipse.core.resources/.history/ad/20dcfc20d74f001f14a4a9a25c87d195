@@ -1,0 +1,12 @@
+package com.aurionpro.structural.decorator.test;
+
+import com.aurionpro.structural.decorator.model.ICarService;
+
+public class CarInspectionTest {
+
+	public static void main(String[] args) {
+		ICarService carObj; 
+
+	}
+
+}

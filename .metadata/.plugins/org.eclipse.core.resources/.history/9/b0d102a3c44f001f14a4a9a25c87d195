@@ -1,0 +1,28 @@
+package com.aurionpro.structural.facade.test;
+
+import com.aurionpro.structural.facade.model.IHotel;
+import com.aurionpro.structural.facade.model.IMenu;
+import com.aurionpro.structural.facade.model.IndianHotel;
+
+public class HotelTest {
+
+	public static void main(String[] args) {
+		getIndianMenu();
+		getItalianMenu();
+
+	}
+	
+	public static void getIndianMenu() {
+		IHotel indHotel = new IndianHotel();
+		IMenu menu = indHotel.getMenu();
+		menu.displayMenu();
+		
+	}
+	public static void getItalianMenu() {
+		IHotel italianHotel = new ItalianHotel();
+		IMenu menu = italianHotel.getMenu();
+		menu.displayMenu();
+		
+	}
+
+}

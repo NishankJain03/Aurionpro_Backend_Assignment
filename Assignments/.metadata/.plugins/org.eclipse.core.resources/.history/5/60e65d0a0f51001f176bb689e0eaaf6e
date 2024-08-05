@@ -1,0 +1,28 @@
+package com.aurionpro.model;
+
+import java.util.List;
+
+public class EmployeeIterator implements Iterator{
+	private List<Employee> list;
+	private int length;
+	private int currentIndex = 0;
+	
+	
+	public EmployeeIterator(List<Employee> list) {
+		super();
+		this.list = list;
+		this.length = list.size();
+	}
+
+	@Override
+	public boolean hasNext() {
+		
+	}
+
+	@Override
+	public Object next() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

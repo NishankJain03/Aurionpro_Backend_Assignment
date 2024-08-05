@@ -1,0 +1,11 @@
+package com.aurionpo.abstractFactory.model;
+
+public class CurrentAccountFactory implements ICarFactory{
+
+	@Override
+	public ICar makeCar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

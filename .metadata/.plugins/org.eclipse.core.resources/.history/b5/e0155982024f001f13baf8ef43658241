@@ -1,0 +1,35 @@
+package com.aurionpro.creational.factory.model;
+
+public class SavingsAccount implements IAccount{
+	private double balance;
+	public SavingsAccount(double balance) {
+		// TODO Auto-generated constructor stub
+		this.balance = balance;
+	}
+	
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	
+	public double getBalance() {
+		return balance;
+	}
+	@Override
+	public void credit(int amount) {
+		if(amount > 0) {
+			balance += amount;
+			System.out.println("Amount credited successfully New balance is " + balance);
+		}else {
+			System.out.println("Enter valid value");
+		}
+			
+		
+	}
+
+	@Override
+	public void debit(int amount) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

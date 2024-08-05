@@ -1,0 +1,10 @@
+package com.aurionpro.behavioural.command.test;
+
+public class CommandTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

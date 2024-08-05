@@ -1,0 +1,10 @@
+package com.aurionpro.test;
+
+public class HatDecoraterTest {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

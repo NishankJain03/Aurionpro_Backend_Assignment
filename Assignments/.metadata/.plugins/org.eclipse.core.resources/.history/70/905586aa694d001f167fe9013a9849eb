@@ -1,0 +1,13 @@
+package com.aurionpro.test;
+
+public class StreamAssignment {
+
+	public static void main(String[] args) {
+		
+		String[] names = {"Jayesh", "Nimesh", "Mark", "Mahesh" , "Ramesh"};
+		
+		//sort in ascending order first 3 student
+
+	}
+
+}

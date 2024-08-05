@@ -1,0 +1,106 @@
+package com.aurionpro.model;
+
+import java.util.Scanner;
+
+public class TicTacToe {
+	public static void main(String[] args) {
+		char [][] board = new char[3][3];
+		
+		//filling the array with dashes
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<3;j++) {
+				board[i][j] = '-';
+			}
+		}
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("TIC TAC TOE Game");
+		System.out.println("Enter the name, player 1");
+		String p1 = scanner.next();
+		System.out.println("Enter the name, player 2");
+		String p2 = scanner.next();
+		
+		boolean player1 = true;
+		
+		boolean hasEnded = false;
+		while(!hasEnded) {
+			printBoard(board);
+			
+			
+			//store the character
+			char c = '-';
+			if(player1) {
+				System.out.println("Player 1 turn's (x)");
+				c = 'x';
+			}
+			if(!player1) {
+				System.out.println("Player 2 turn's (o)");
+				c = 'o';
+			}
+			
+			int row = 0;
+			int col = 0;
+			while(true) {
+				System.out.println("Enter the row number");
+				row = scanner.nextInt();
+				System.out.println("Enter the column number");
+				col = scanner.nextInt();
+				
+				
+				if(row < 0 || col < 0 || row >= 3 || col >=3)
+					System.out.println("Index you are trying is out of bound");
+				if(board[row][col] != '-')
+					System.out.println("The place is already filled ");
+				break;
+			}
+			
+			
+			
+			//placed the value enter by user
+			board[row][col] = c;
+			
+			player1 = !player1;
+				
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+	}
+	
+	public static void printBoard(char [][]board) {
+		//printing the board
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<3;j++) {
+				System.out.print(board[i][j]);
+			}
+			System.out.println(" ");
+		}
+	}
+	
+	public static char playerHasWon(char [][] board) {
+		//checking each row
+		for(int i=0;i<board.length;i++) {
+			boolean inRow = true;
+			char value = board[i][0];
+			if(value == '-') {
+				inRow = false;
+				break;
+			}
+			for(int j=0; j<board[i].length;j++) {
+				if(board[i][j] != value) {
+					inRow = false;
+					break;
+				}
+			}
+			if(inRow)
+			return value;
+		}
+		
+		//check
+	}
+}

@@ -1,0 +1,12 @@
+package com.aurionpro.structural.decorator.model;
+
+public class CarServiceDecorator implements ICarService{
+	ICarService carObj;
+
+	public CarServiceDecorator(ICarService carObj) {
+		super();
+		this.carObj = carObj;
+	}
+	
+	
+}

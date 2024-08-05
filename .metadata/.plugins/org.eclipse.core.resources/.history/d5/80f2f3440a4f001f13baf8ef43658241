@@ -1,0 +1,21 @@
+package com.aurionpo.abstractFactory.model;
+
+public class CurrentAccount implements ICar{
+	private int accountNumber;
+	private String name;
+	private double balance;
+	private double overDraftLimit;
+	
+	@Override
+	public void start() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void stop() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

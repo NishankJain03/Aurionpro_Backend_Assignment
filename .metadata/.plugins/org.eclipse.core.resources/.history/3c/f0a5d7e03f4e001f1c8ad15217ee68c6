@@ -1,0 +1,6 @@
+package com.aurionpro.dip.solution;
+
+public class TaxCalculator {
+	private DBLogger dblogger;
+	private FileLogger filelogger;
+}

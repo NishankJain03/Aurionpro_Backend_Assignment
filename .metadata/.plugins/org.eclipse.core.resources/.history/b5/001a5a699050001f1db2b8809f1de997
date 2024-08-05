@@ -1,0 +1,11 @@
+package com.aurionpro.behavioural.observer.model;
+
+public class SMSNotifier implements IAccount{
+
+	@Override
+	public void notifyApp(Account account) {
+		System.out.println("Amount has been credited" + account.getBalance());	
+		
+	}
+
+}

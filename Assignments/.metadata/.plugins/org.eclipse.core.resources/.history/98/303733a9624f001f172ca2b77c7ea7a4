@@ -1,0 +1,8 @@
+package com.aurionpro.model;
+
+public class Car implements Prototype{
+	private String brand;
+	private String model;
+	private String color;
+	private int topSpeed;
+}

@@ -1,0 +1,10 @@
+package com.aurionpro.structural.facade.test;
+
+public class MovieTest {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

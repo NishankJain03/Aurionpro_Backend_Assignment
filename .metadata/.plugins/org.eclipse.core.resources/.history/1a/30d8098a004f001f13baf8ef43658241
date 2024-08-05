@@ -1,0 +1,10 @@
+package com.aurionpro.creational.factory.model;
+
+public class CarFactory {
+	public ICar makeCar(String carName) {
+		ICar car;
+		
+		if(carName == "Maruti")
+			car = new Maruti();
+	}
+}

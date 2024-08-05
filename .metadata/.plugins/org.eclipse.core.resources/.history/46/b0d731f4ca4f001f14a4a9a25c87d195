@@ -1,0 +1,17 @@
+package com.aurionpro.structural.adapter.model;
+
+public class Chocolate implements IItems{
+
+	@Override
+	public String getItemName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double getItemPrice() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

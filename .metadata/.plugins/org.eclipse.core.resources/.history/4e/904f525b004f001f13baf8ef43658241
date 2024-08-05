@@ -1,0 +1,8 @@
+package com.aurionpro.creational.factory.model;
+
+public class CarFactory {
+	public ICar makeCar(String name) {
+		ICar car;
+		
+	}
+}

@@ -1,0 +1,14 @@
+package com.aurionpo.abstractFactory.model;
+
+import java.util.Scanner;
+
+public class SavingsAccountFactory implements IAccountFactory{
+
+	@Override
+	public IAccount makeAccount(Scanner scanner) {
+		// TODO Auto-generated method stub
+		return new SavingsAccount(scanner.accountNumber, name, balance, minimumBalance);
+	}
+	
+
+}

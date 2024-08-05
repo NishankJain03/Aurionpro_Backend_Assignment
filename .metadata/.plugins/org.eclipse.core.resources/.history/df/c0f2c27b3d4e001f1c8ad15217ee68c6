@@ -1,0 +1,5 @@
+package com.aurionpro.dip.violation.model;
+
+public class DBLogger {
+
+}

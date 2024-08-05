@@ -1,0 +1,11 @@
+package com.aurionpro.model;
+
+public class RibonedHat extends HatDecorater{
+
+	public RibonedHat(IHat hat) {
+		super(hat);
+	}
+	
+	
+
+}

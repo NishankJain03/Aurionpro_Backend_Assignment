@@ -1,0 +1,10 @@
+package com.aurionpro.srp.violations.test;
+
+public class FixedDepositTest {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

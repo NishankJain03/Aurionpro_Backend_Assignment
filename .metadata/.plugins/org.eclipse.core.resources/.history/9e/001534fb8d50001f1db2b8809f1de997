@@ -1,0 +1,16 @@
+package com.aurionpro.behavioural.observer.test;
+
+import java.util.Scanner;
+
+import com.aurionpro.behavioural.observer.model.Account;
+
+public class AccountTest {
+
+	public static void main(String[] args) {
+		Account account = new Account(123333, "nishank", 430000);
+		Scanner scanner = new Scanner(System.in);
+		account.credit(amount);
+
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.aurionpo.abstractFactory.model;
+
+public class MarutiFactory implements ICarFactory{
+
+	@Override
+	public MarutiFactory makeCar() {
+		return new Maruti();	
+	}
+	
+}

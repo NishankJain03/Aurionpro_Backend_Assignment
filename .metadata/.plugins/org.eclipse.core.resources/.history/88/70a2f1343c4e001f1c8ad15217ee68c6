@@ -1,0 +1,29 @@
+package com.aurionpro.isp.solution.model;
+
+public class Labour implements IWorker{
+
+	@Override
+	public void eat() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void drink() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void start() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void stop() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

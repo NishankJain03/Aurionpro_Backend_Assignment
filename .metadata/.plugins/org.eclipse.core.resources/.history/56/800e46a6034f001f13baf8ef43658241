@@ -1,0 +1,15 @@
+package com.aurionpro.creational.factory.test;
+
+import com.aurionpro.creational.factory.model.AccountFactory;
+import com.aurionpro.creational.factory.model.IAccount;
+
+public class AccountTest {
+
+	public static void main(String[] args) {
+		IAccount account;
+		
+		account = AccountFactory.makeAccount("Savings", 34000);
+
+	}
+
+}

@@ -1,0 +1,53 @@
+package com.aurionpro.srp.violations.model;
+
+public class Invoice {
+	private String invoiceId;
+	private String description;
+	private double amount;
+	private double tax;
+	public Invoice(String invoiceId, String description, double amount, double tax) {
+		super();
+		this.invoiceId = invoiceId;
+		this.description = description;
+		this.amount = amount;
+		this.tax = tax;
+	}
+	public String getInvoiceId() {
+		return invoiceId;
+	}
+	public void setInvoiceId(String invoiceId) {
+		this.invoiceId = invoiceId;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public double getAmount() {
+		return amount;
+	}
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+	public double getTax() {
+		return tax;
+	}
+	public void setTax(double tax) {
+		this.tax = tax;
+	}
+	
+	public double calculateTax() {
+		return amount * 10 / 100;
+	}
+	
+	public void printInvoice() {
+		double tax = calculateTax();
+		double totalAmount = amount + tax;
+		System.out.println("Invoice ID: " + invoiceId);
+        System.out.println("Description: " + description);
+        System.out.println("Amount: " + amount);
+        System.out.println("Tax: " + tax);
+        System.out.println("Total Amount: $" + String.format("%.2f", totalAmount));
+	}
+}

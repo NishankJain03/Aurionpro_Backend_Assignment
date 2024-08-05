@@ -1,0 +1,10 @@
+package com.aurionpro.creational.singleton.model;
+
+public class DatabaseConnection {
+	private static DatabaseConnection databaseConnection;
+	
+	public DatabaseConnection() {
+		System.out.println("Database Created");
+	}
+	
+}

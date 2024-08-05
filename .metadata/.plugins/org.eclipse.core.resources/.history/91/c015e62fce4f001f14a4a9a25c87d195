@@ -1,0 +1,10 @@
+package com.aurionpro.structural.adapter.test;
+
+public class ShoppingCartTest {
+
+	public static void main(String[] args) {
+		List<IItem> items = new ArrayList<>();
+
+	}
+
+}

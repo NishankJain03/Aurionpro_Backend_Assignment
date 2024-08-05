@@ -1,0 +1,15 @@
+package com.aurionpro.test;
+
+import com.aurionpro.model.Inventory;
+
+public class GuitarTest {
+	public static void main(String[] args) {
+		Inventory inventory = new Inventory();
+		initializeInventory(inventory);
+		
+		
+	}
+	public static void initializeInventory(Inventory inventory) {
+		
+	}
+}

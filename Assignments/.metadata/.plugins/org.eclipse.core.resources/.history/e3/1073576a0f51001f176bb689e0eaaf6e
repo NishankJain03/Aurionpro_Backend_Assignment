@@ -1,0 +1,12 @@
+package com.aurionpro.model;
+
+import java.util.List;
+
+public class Employee {
+
+	public static void main(String[] args) {
+		List<Employee> employees = new Employee();
+		
+	}
+
+}

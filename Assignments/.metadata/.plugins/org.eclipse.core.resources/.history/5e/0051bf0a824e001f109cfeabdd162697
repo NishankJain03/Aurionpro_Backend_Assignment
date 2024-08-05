@@ -1,0 +1,53 @@
+package com.aurionpro.test;
+
+import java.util.Arrays;
+import java.util.List;
+
+import com.aurionpro.model.Country;
+import com.aurionpro.model.Region;
+
+public class RegionTest {
+
+	public static void main(String[] args) {
+		Region europe = new Region(1, "Europe");
+		Region america = new Region(2, "America");
+		Region asia = new Region(3, "Asia");
+		Region middleEast = new Region(4, "Middle East and Africa");
+		
+		List<Country> countries = Arrays.asList(
+			new Country("IT", "Italy", europe),
+			new Country("JP", "Japan", asia),
+			new Country("US", "United States of America", america),
+			new Country("CA", "Canada", america),
+			new Country("CN", "China", asia),
+			new Country("IN", "India", asia),
+			new Country("AU", "Australia", asia),
+            new Country("ZW", "Zimbabwe", middleEast),
+            new Country("SG", "Singapore", asia),
+            new Country("UK", "United Kingdom", europe),
+            new Country("FR", "France", europe),
+            new Country("DE", "Germany", europe),
+            new Country("ZM", "Zambia", middleEast),
+            new Country("EG", "Egypt", middleEast),
+            new Country("BR", "Brazil", america),
+            new Country("CH", "Switzerland", europe),
+            new Country("NL", "Netherlands", europe),
+            new Country("MX", "Mexico", america),
+            new Country("KW", "Kuwait", middleEast),
+            new Country("IL", "Israel", middleEast),
+            new Country("DK", "Denmark", europe),
+            new Country("HK", "HongKong", asia),
+            new Country("NG", "Nigeria", middleEast),
+            new Country("AR", "Argentina", america),
+            new Country("BE", "Belgium", europe)
+		);
+		
+		//get name of country from country code
+		String countryCode = "JP";
+		Optional<String> countryName = countries.stream()
+												.filter((countryName) -> countryName.getCountryCode().equals(countryCode))
+												.map(Country::getCountryName);
+
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.aurionpro.structural.facade.model;
+
+public class MovieFacade {
+	public static void watchMovie() {
+		DvdPlayer dvdPlayer = new DvdPlayer();
+		dvdPlayer.On();
+		dvdPlayer.setMovie("Movie1");
+	}
+}

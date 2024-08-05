@@ -1,0 +1,14 @@
+package com.aurionpro.behavioural.state.model;
+
+public class Packet {
+	IPacket packet;
+
+	public Packet(IPacket packet) {
+		super();
+		this.packet = packets;
+	}
+	
+	public IPacket getPacketState() {
+		return packets.current(packet);
+	}
+}

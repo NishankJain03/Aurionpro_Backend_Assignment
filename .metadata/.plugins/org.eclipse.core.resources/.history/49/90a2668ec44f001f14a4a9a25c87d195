@@ -1,0 +1,13 @@
+package com.aurionpro.structural.facade.test;
+
+public class HotelTest {
+
+	public static void main(String[] args) {
+		getIndianMenu();
+		getItalianMenu();
+
+	}
+	
+	public static void getIndianMenu
+
+}

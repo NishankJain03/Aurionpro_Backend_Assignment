@@ -1,0 +1,11 @@
+package com.aurionpro.behavioural.observer.model;
+
+public class EmailNotifier implements IAccount{
+
+	@Override
+	public void notifyApp(Account account) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

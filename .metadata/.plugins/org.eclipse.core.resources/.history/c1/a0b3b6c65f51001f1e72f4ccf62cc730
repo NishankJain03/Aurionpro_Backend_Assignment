@@ -1,0 +1,32 @@
+package com.aurionpro.model;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class OperationTest {
+	Operation operations = new Operation();
+	@Test
+	void testAddition() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSubtraction() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testMulitplication() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testDivision() {
+		fail("Not yet implemented");
+	}
+	
+	assertEquals(0, operations.subtraction(5, 5));
+	assertEquals(25, operations.mulitplication(5, 5));
+	assertEquals(1, operations.division(5, 5));
+}

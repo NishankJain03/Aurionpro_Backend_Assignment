@@ -1,0 +1,20 @@
+package com.aurionpro.test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.aurionpro.model.Employee;
+
+public class EmployeeTest {
+
+	public static void main(String[] args) {
+		List<Employee> employees = new ArrayList<>();
+		employees.add(new Employee("Nishank", 50000));
+		employees.add(new Employee("Abc", 50000));
+		employees.add(new Employee("bdw", 50000));
+		employees.add(new Employee("wefw", 50000));
+		employees.add(new Employee("weffe", 50000));
+
+	}
+
+}

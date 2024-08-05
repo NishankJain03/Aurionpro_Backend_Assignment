@@ -1,0 +1,12 @@
+package com.aurionpro.srp.violations.test;
+
+import com.aurionpro.srp.violations.model.Invoice;
+
+public class InvoiceTest {
+
+	public static void main(String[] args) {
+		Invoice invoices = new Invoice("123", "Invoice of Electronics", 234000, 15);
+
+	}
+
+}

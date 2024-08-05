@@ -1,0 +1,50 @@
+package com.aurionpro.test;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Test {
+
+	public static void main(String[] args) {
+		List<Integer> numbers = Arrays.asList(20,23,45,67,23,34,45,5,565,76);
+		
+//		Stream<Integer> numberStream = numbers.stream();
+//		
+//		numberStream.forEach((number) -> System.out.println(number));
+		
+		//the above two line can be written in this way
+//		System.out.println("All the number");
+//		numbers.stream().forEach((number ) -> System.out.println(number));
+		
+		
+		//filtering out the odd
+//		System.out.println("Odd values greater than 25 ");
+		List<Integer> filteredNumber = numbers.stream()
+				.filter((number) -> (number % 2 != 0))
+				.filter((number) -> (number > 25))
+//				.forEach((number) -> System.out.println(number));
+				.collect((Collectors.toList()));
+		
+//		filteredNumber.stream().forEach((number) -> System.out.println(number));
+		for(Integer number: filteredNumber )
+//			System.out.println(number);
+		
+//		List<Integer> squareNumber = numbers.stream()
+//				.map((number) -> number * number)
+//				.collect(Collectors.toList());
+		
+//		System.out.println("Square of the number is ");
+//		for(Integer number: squareNumber)
+//			System.out.println(number);
+		
+		
+		//if you want to perform operation that return only single value so we use reduce
+		int sum = numbers.stream().reduce(0,(number1,number2) -> number1+number2);
+		System.out.println("Sum: " + sum);
+		
+	}
+
+}

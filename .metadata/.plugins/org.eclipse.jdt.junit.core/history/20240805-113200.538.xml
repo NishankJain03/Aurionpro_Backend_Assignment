@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StudentTest (2)" project="16_UnitTesting" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="com.aurionpro.model.StudentTest" time="0.016" displayname="StudentTest" uniqueid="[engine:junit-jupiter]/[class:com.aurionpro.model.StudentTest]">
+    <testcase name="test" classname="com.aurionpro.model.StudentTest" time="0.016" displayname="test()" uniqueid="[engine:junit-jupiter]/[class:com.aurionpro.model.StudentTest]/[method:test()]">
+      <error>java.lang.NullPointerException&#13;
+	at com.aurionpro.model.StudentTest.test(StudentTest.java:18)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:498)&#13;
+	at java.util.ArrayList.forEach(ArrayList.java:1257)&#13;
+	at java.util.ArrayList.forEach(ArrayList.java:1257)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

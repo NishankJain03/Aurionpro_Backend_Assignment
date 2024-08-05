@@ -1,0 +1,14 @@
+package com.aurionpo.abstractFactory.model;
+
+import java.util.Scanner;
+
+public class CurrentAccountFactory implements ICarFactory{
+
+	@Override
+	public ICar makeCar(Scanner scanner) {
+		
+		// TODO Auto-generated method stub
+		return new CurrentAccount(accountNumber, name, balance, overDraftLimit);
+	}
+
+}

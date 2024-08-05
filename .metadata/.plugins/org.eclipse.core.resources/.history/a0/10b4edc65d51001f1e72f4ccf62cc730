@@ -1,0 +1,16 @@
+package com.aurionpro.model;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class OperationTest {
+
+	@Test
+	void test() {
+		Operation operations = new Operation();
+		int actual = operations.addition(5, 5);
+		int expected = 10;
+	}
+
+}

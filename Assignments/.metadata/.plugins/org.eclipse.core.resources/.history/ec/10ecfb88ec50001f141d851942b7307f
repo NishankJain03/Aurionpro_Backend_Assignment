@@ -1,0 +1,11 @@
+package com.aurionpro.test;
+
+public class TicTacToeTest {
+
+	public static void main(String[] args) {
+		 TicTacToeFacade facade = new TicTacToeFacade();
+	     facade.startGame();
+
+	}
+
+}

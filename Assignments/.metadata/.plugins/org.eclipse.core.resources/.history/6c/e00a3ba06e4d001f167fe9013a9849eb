@@ -1,0 +1,13 @@
+package com.aurionpro.test;
+
+import com.aurionpro.model.Accout;
+
+public class StreamObject {
+
+	public static void main(String[] args) {
+		Accout account1 = new Accout(123456789, "NishankJain" , 78000);
+		
+
+	}
+
+}

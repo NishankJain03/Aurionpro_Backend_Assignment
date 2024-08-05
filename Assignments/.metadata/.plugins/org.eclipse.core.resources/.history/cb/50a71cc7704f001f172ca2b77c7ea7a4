@@ -1,0 +1,14 @@
+package com.aurionpro.model;
+
+public class ShapeClient {
+	private Shape shapePrototype;
+
+	public ShapeClient(Shape shapePrototype) {
+		super();
+		this.shapePrototype = shapePrototype;
+	}
+	
+	public Shape createShape() {
+		return shapePrototype.clone();
+	}
+}	

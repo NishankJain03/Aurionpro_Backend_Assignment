@@ -1,0 +1,58 @@
+package com.aurionpro.dip.violation.model;
+
+public class TaxCalculator {
+	private DBLogger dblogger;
+	private int amount;
+	private int rate;
+	
+	
+	
+	public TaxCalculator(DBLogger dblogger, int amount, int rate) {
+		super();
+		this.dblogger = dblogger;
+		this.amount = amount;
+		this.rate = rate;
+	}
+
+	
+	public DBLogger getDblogger() {
+		return dblogger;
+	}
+
+
+	public void setDblogger(DBLogger dblogger) {
+		this.dblogger = dblogger;
+	}
+
+
+	public int getAmount() {
+		return amount;
+	}
+
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+
+	public int getRate() {
+		return rate;
+	}
+
+
+	public void setRate(int rate) {
+		this.rate = rate;
+	}
+
+
+	public int calculateTax(int amount, int rate) {
+		int tax = 0;
+		try {
+			tax = amount / rate;
+			System.out.println(tax);
+		}catch(Exception e) {
+			new DBLogger().log("Divide by zero");
+		}
+	}
+	
+}

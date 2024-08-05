@@ -1,0 +1,18 @@
+package com.aurionpro.model;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class StudentTest {
+	private IStudentService studentservice;
+	
+	void init() {
+		
+	}
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

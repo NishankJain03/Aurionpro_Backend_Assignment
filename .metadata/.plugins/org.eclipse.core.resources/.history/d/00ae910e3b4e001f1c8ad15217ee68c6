@@ -1,0 +1,16 @@
+package com.aurionpro.isp.violation.test;
+
+import com.aurionpro.isp.violation.model.IWorker;
+import com.aurionpro.isp.violation.model.Labour;
+
+public class WorkerTest {
+
+	public static void main(String[] args) {
+		IWorker labour = new Labour();
+		worker.startWork();
+		
+		IWorker
+		
+	}
+
+}

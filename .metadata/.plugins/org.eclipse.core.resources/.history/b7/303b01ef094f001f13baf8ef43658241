@@ -1,0 +1,79 @@
+package com.aurionpo.abstractFactory.model;
+
+public class SavingsAccount implements IAccount{
+	private int accountNumber;
+	private String name;
+	private double balance;
+	private double minimumBalance;
+
+	public SavingsAccount(int accountNumber, String name, double balance, double minimumBalance) {
+		super();
+		this.accountNumber = accountNumber;
+		this.name = name;
+		this.balance = balance;
+		this.minimumBalance = minimumBalance;
+	}
+
+	
+	
+	public int getAccountNumber() {
+		return accountNumber;
+	}
+
+
+
+	public void setAccountNumber(int accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+	public double getBalance() {
+		return balance;
+	}
+
+
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
+
+
+	public double getMinimumBalance() {
+		return minimumBalance;
+	}
+
+
+
+	public void setMinimumBalance(double minimumBalance) {
+		this.minimumBalance = minimumBalance;
+	}
+
+
+
+	@Override
+	public void credit(int amount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void debit(int amount) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

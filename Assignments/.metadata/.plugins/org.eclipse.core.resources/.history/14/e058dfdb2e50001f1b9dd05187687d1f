@@ -1,0 +1,14 @@
+package com.aurionpro.model;
+
+public class Composite implements Component{
+	String name;
+	double price;
+	
+	
+	@Override
+	public void showPrice() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

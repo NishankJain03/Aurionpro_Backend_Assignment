@@ -1,0 +1,24 @@
+package com.aurionpro.test;
+
+import java.util.Arrays;
+import java.util.List;
+
+import com.aurionpro.model.Accout;
+
+public class StreamObject {
+
+	public static void main(String[] args) {
+		Accout account1 = new Accout(123456789, "NishankJain" , 78000);
+		Accout account2 = new Accout(122324335, "Aurionpro" , 24000);
+		Accout account3 = new Accout(325534523, "Swabhav" , 80000);
+		Accout account4 = new Accout(353453466, "Techlabs" , 48000);
+		
+		
+		List<Accout> accounts = Arrays.asList(account1,account2,account3,account4);
+		
+		//finding the minimum balance
+		Accout minimumBalance = accounts.stream().min((account1,account2) -> (double) account1.getBalance()-(double)account2.getBalance())
+
+	}
+
+}

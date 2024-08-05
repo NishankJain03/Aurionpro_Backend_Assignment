@@ -1,0 +1,252 @@
+Imp - Notes    24-7
+
+creatinga a thread 
+1 -> extending the thread class
+2 -> implementing runnable interface
+
+all the work of the thread should be written in run method
+we can also give name to the thread using constructor
+
+1. extending the thread class
+ class className extends Thread{
+	className myThread = new Thread();
+}
+
+
+out of the above two method we choose runnable because if we want our class to extends from other class it is possible
+but this is not in case of threadmethod or by using extedning thread class
+
+if we want our thread to wait till the other thread exceution we need to join them 
+thread.join(thread2)
+this means until thread completes its excution thread2 will wait
+
+Thread priority --> number 1 - 10 that decides how much time cpu will allocate to thread to execute
+
+
+
+
+
+lowest --> 1--> Thread.MIN_PRIORITY
+normal --> 5 --> Thread.NORM_PRIORITY
+highest --> 10 --> Thread.MAX_PRIORITY
+
+default --> 5
+
+synchronization --> it means that thread 1 completes it all task after that thread 2 will start its task execution
+
+DATE --- 25-7
+
+
+ExecutorService --> thread pool(framework for managing and controlling execution of task)
+this helps to prevent multiple thread ..it will allow us to create a thread pool
+in which it contains a fixed number of thread and this thread will execute the task
+here we ca control which thread and how many number of thread can perform the task
+
+
+there are two task
+1. cpu intensive   -> calculate the count of processors based on that thread should be created
+2. i/o intensive   -> higher the number faster is the task is done
+
+Thread pool types
+
+1. newFixedThreadPool  --> number of thread will be given the user
+2. newCachedThreadPool  --> create a thread on requirements
+3. SingleThreadExecutor --> it creates only single thread
+4. ScheduledThreadPool --> schedule task to run on time delay
+
+
+There is new way to create a thread class
+3. Callable --> the basice difference between them is the method 
+public int call() instead of public void run()
+
+The interface which have only one abstract method defined in it is called functional interface but can have many default and static methods
+
+Marker interface --> which has no abstract methods - use for tagging the class(like it can perfrom something)
+
+
+with the help of lamda we can define the method assign to the variable
+we can definition of method to another method
+
+
+
+
+
+
+26-7
+
+Interface built in
+1. Consumer -> accept one argument return nothing method -> void accept(T t) has a variation BiCconsumer
+2. Supplier -> return some value but does not accpet method -> get 
+3. Predicate -> method -> test accepts one value return boolean variation is BiPredicate
+4. Function -> accept one argument and return one value method -> apply
+
+
+
+STREAMS: -> sequence of bytes
+
+are of two types
+1. Intermediate - 
+	a. return a stream
+	a. filter
+	
+2. Terminal
+	a. return non stream values ie final output 
+	a. forEach(), collect(), reduce
+
+we can perform one operation at a time in stream
+
+
+29-7
+
+OOAD
+SOLID PRINCIPLE
+
+1. S -> single responsibility -> 1 class should have 1 responsibility
+2. o -> open for extension closed for modification
+3. L -> Liskov Substitution Principle
+4. I -> Interface segregation
+5. D -> Dependency inversion
+
+
+composition -> embedding of another class in some another class
+
+
+31-7
+
+three design patterns 
+1) creational  -> how objects must be created --> singleton. builder, factory, abstract factory, prototype
+2) Structural -> how you should create classes, interface --> Adapter,facade, decorator, composite, proxy, bridge 
+3) Behavioural -> interaction of different objects --> observer, iterator, state design, command, strategy
+
+
+
+1)Singletion
+	--make constructor private
+	--declare a private static reference of same class
+	--declare a public static method to get instance of the class
+
+2)Factory 
+	--design abstract class and interface and let subclass design its functionalities
+
+3)Abstract Factory 
+	--create factory of factories
+
+
+
+STRUCTURAL
+
+1. Facade --> hide the complexity of subsystem
+2. Adapter -> adapts
+3. Decorator -> 
+
+
+
+
+
+
+
+2-8
+
+Association 
+	Aggregation -> has a (both operate individually)
+		composition -> part of relationship 
+
+
+
+
+
+BEHAVIOURAL
+	-how object must communicate
+
+1. Observer
+	as soon as the state of the object(o1) changes certain object perform task
+	
+
+
+
+
+
+
+
+
+
+
++---------------------------------+
+|          TicTacToeGame          |
++---------------------------------+
+| - board: char[][]                |
+| - player1Turn: boolean           |
++---------------------------------+
+| + TicTacToeGame()                |
+| + makeMove(row: int, col: int): boolean |
+| + checkWinner(): char            |
+| - playerHasWon(): char           |
+| - boardIsFull(): boolean         |
+| + getBoard(): char[][]           |
+| + isPlayer1Turn(): boolean       |
++---------------------------------+
+
+          ^ 
+          | 
+          | 
++---------------------------------+
+|          TicTacToeFacade         |
++---------------------------------+
+| - game: TicTacToeGame            |
+| - scanner: Scanner               |
++---------------------------------+
+| + TicTacToeFacade()              |
+| + startGame()                    |
+| - printBoard()                  |
++---------------------------------+
+
+          ^ 
+          |
+          |
+
+|          TicTacToeTest         |
+---------------------------------
+| + main(args: String[]): void   |
+
+
+
+
+
+
+
+
+
+
+
+MAVEN --> 
+	1. which gives you a full readymade project structure
+	2. it is very easy to add and manage external dependencies
+
+pom.xml --> manage external dependencies
+
+
+groupId -> package name ->com.aurionpro
+artifactId -> project name
+
+main code -> src/main/
+
+test code -> src/test/
+
+
+
+
+
+TDDD
+Red -> testcase
+green -> implement
+
+
+
+
+
+
+
+
+
+
+

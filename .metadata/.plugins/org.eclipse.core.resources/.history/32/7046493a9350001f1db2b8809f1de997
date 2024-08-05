@@ -1,0 +1,12 @@
+package com.aurionpro.behavioural.observer.model;
+
+public class SMSNotifier implements IAccount{
+
+	@Override
+	public void notifyApp(Account account) {
+		
+		System.out.println("SMS notification: \n " + account.notificationState  + "Current Balance is " + account.getBalance());	
+		
+	}
+
+}

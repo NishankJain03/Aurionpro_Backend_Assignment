@@ -1,0 +1,16 @@
+package com.aurionpro.model;
+
+public class Car {
+	//required parameters
+	private String engine;
+	private int wheels;
+	
+	//optional parameters
+	private boolean airConditioning;
+	private boolean sunRoof;
+	private boolean GPS;
+	
+	
+	
+	
+}

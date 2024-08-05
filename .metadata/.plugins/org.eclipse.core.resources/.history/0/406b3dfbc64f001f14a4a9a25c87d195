@@ -1,0 +1,11 @@
+package com.aurionpro.structural.facade.model;
+
+public class SoundSystem implements TurnOn{
+
+	@Override
+	public void On() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

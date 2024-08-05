@@ -1,0 +1,9 @@
+package com.aurionpro.behavioural.state.model;
+
+public interface IPacket {
+	void next(Packet);
+	void previous(Packet);
+	void current(Packet);
+	
+	
+}

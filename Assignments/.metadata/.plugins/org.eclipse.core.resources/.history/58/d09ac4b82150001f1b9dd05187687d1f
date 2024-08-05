@@ -1,0 +1,9 @@
+package com.aurionpro.model;
+
+public class GoldenHat extends HatDecorater{
+
+	public GoldenHat(IHat hat) {
+		super(hat);
+	}
+
+}

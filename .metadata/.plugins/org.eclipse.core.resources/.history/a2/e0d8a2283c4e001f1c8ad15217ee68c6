@@ -1,0 +1,7 @@
+package com.aurionpro.isp.solution.model;
+
+public class Labour {
+	public static void main(String[] args) {
+		
+	}
+}

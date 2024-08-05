@@ -1,0 +1,12 @@
+package com.aurionpro.structural.facade.test;
+
+import com.aurionpro.structural.facade.model.DvdPlayer;
+
+public class MovieTest {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.aurionpo.abstractFactory.model;
+
+public class SavingsAccount {
+
+}

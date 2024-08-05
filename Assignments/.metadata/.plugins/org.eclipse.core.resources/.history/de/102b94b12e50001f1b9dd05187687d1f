@@ -1,0 +1,18 @@
+package com.aurionpro.model;
+
+public class Leaf implements Component{
+	String name;
+	Double price;
+	
+	public Leaf() {
+		
+	}
+	
+	
+	@Override
+	public void showPrice() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

@@ -1,0 +1,11 @@
+package com.aurionpro.test;
+
+public class FileReaderStreamDemo {
+
+	public static void main(String[] args) {
+		String fileName = "D:\\Training\\Assignments\\FileReadAssignmnetUsingStream\\src\\test";
+		
+
+	}
+
+}
