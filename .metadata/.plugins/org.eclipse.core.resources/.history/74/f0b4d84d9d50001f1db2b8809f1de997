@@ -1,7 +1,0 @@
-package com.aurionpro.behavioural.strategy.test;
-
-public class OperationStrategyTest {
-	public static void main(String[] args) {
-		
-	}
-}

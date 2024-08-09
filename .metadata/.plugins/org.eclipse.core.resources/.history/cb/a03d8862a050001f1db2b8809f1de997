@@ -1,7 +1,0 @@
-package com.aurionpro.behavioural.command.model;
-
-public interface Command {
-	interface Command {
-	    public void execute();
-	}
-}

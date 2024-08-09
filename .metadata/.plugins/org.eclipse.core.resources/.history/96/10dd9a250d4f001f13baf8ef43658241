@@ -1,6 +1,0 @@
-package com.aurionpo.abstractFactory.model;
-
-public interface IAccount {
-	void credit(int amount);
-	void debit (int amount);
-}

@@ -1,7 +1,0 @@
-package com.aurionpro.structural.facade.model;
-
-public class MovieFacade {
-	DvdPlayer dvdPlayer = new DvdPlayer();
-	SoundSystem soundSystem = new SoundSystem();
-	Projector projector = new Projector();
-}

@@ -1,9 +1,0 @@
-package com.aurionpro.test;
-
-public class PrototypeTest {
-	public static void main(String[] args) {
-		System.out.println("Creating the object using prototype design pattern");
-		
-		
-	}
-}		

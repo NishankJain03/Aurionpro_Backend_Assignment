@@ -1,6 +1,0 @@
-package com.aurionpro.creational.factory.model;
-
-public interface IAccount {
-	void credit(amount);
-	void debit (amount);
-}

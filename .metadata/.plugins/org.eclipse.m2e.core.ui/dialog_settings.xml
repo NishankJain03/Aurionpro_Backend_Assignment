@@ -2,10 +2,12 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.aurionpro.model"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="TicTacToe"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

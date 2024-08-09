@@ -1,7 +1,0 @@
-package com.aurionpro.behavioural.state.test;
-
-public class PacketTest {
-	public static void main(String[] args) {
-		
-	}
-}

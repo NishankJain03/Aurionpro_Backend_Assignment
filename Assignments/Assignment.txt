@@ -245,6 +245,190 @@ green -> implement
 
 
 
+POC - NORMALIZATION
+Using normalization we solve the problem of data redundancy and organize the data in different forms
+
+it is a multistep process that set the data into tabular form and removes he duplicate data
+
+
+1NF -> atomicity of the table should be 1
+
+atomicity -> single cell cannot hold multiple values 1 cell -> 1 value
+
+
+
+candidate key is a set of one or more columns that can identify a record uniquely in a table and we can use each candidatekey as primary key
+
+super key -> a set of over one key that can identify a record uniquely in a table and primary key is subset of super key
+
+2NF ->
+	it should follow 1NF
+	the table should not possess partial dependency
+	after split each table should have primary key and relationship between the tables using foreign keys
+
+3NF -> 	
+	it should follow 2NF
+	there should be no transitive dependency
+	can -> non prime (works) 
+	but non prime -> non prime(no)
+	
+BCNF ->
+	is should be in 3nf
+	lhs of functional dependency should be a candidate key or super key
+	
+
+7-08
+
+MODEL -> DATA -> DATABASE
+
+VIEW -> HTML PAGES, JSP PAGES  -> FORMAT
+
+CONTROLLER -> how to show data to view taken care by 
+
+
+
+view -> controller -----------fetch----> model ---> view
+
+
+servlets  -> are the controller
+
+
+src -> controller
+webcontent -> jsp pages
+
+
+two types of servlets
+	1. generic
+	2. http
+
+generic
+	1. init -> first request incoming call this method
+	2. service -> responsible to generate response
+		      from second response
+	3. destroy -> it destroys the servlets
+
+for http request we use HTTPSERVLET here it have 4 methods
+
+	1. init -> same as generic
+	2. destroy -> same as generic
+	3. instead of service it have two methods
+		a) get
+		b) post
+
+we can write either get or post based upon the type of request
+
+init and destroy are optional
+
+
+
+
+
+STEPS FOR CONNECTION
+
+	1. Register Driver -> Class.forName("com.mysql.cj.jdbc.Driver")
+	2. Create connection -> Driver Manager -> getConnection("jdbc:mysql://.....localhost:3306/(databaseName)", "username","password"); -> return object of Connection connection
+	3. check the connection
+	4. To execute any query we create statement object
+		to execute query we have object ResultSet dbData = statement.executeQuery
+	5. if want to insert,update,delete the data -> use executeUpdate()
+
+To minimize the efforts for writing the whole query we can use PreparedStatement instead of Statement
+it is use to execute the parameterized query
+
+
+
+
+
+BATCH PROCESSING - 
+	rather than executing mutiple statement differently we make a batch of them and execute all of them at once
+resource efficient
+company -> send mail
+
+1-> setAutocommit -> false as we want to commit after our batch is ready
+array -> no of rows affected -> return 1 or 0
+
+
+TRANSACTION MANAGEMENT
+	- To achieve data consistency
+	- commit (all process are executed)
+	- rollback (none of the process is executed)
+
+
+
+
+JSP -> HTML + SOME JAVA CODE
+
+
+JSP(.jsp) is converted to Servlet(.java) then it is executed
+
+Jsp -> servlet  ----> translation --> then same as servlet
+
+
+init --> jsp_init
+service --> jsp_service
+destroy --> jsp_destroy
+
+
+
+TAGS --> 
+
+1) SCRIPLET --> <% %>
+2) EXPRESSION --> <%= %>  (no need to use out.print)
+3) DECLARATION --> <%! %> (declare method , var, ....etc)
+4) COMMENT --> <%-- %>
+
+
+DIRECTIVE --> TO add the directive <%@ %>
+1) PAGE --> applied to whole page <%@ page>
+2) INCLUDE --> use to add other file(jsp, html, text,,etc) content in other file <%@ include %>
+3) TAGLIB ---> use to add external tag libraries <%@ taglib %>
+
+every http request is considered as new request -> stateless
+
+
+SESSION TRACKING
+
+1) URL REWRITING ->when a new request is made a client identification is sent to server via url
+2) HIDDEN FORM FIELDS -> 
+3) COOKIES -> peice of info stored at client generate by server -> for storing info of client at server side
+
+
+types of cookies 
+	1) persisted
+	2) non - persisted
+
+
+
+HTTP SESSION ->
+
+.getSession() --> returns a session if already exits or create a new one
+
+.getSession(true) --> returns a new session
+
+.getSession(false) --> to fetch pre existing session
+
+.setAttribute(name,value) --> value specify name in particular session
+
+.getAttribute(String name) --> returns value 
+
+.removeAttribute(String name) --> removes the attribute
+
+invalidate() --> destroy the session
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

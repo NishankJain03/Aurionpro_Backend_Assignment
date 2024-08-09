@@ -1,7 +1,0 @@
-package com.aurionpro.model;
-
-public interface Shape extends Cloneable{
-	void draw();
-
-	Shape clone();
-}

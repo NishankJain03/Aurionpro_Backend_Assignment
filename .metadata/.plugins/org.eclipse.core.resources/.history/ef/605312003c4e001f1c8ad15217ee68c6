@@ -1,7 +1,0 @@
-package com.aurionpro.isp.solution.model;
-
-public class WorkerTest {
-	public static void main(String[] args) {
-		
-	}
-}

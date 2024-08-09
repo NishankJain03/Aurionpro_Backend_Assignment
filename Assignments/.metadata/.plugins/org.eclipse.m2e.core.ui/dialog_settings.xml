@@ -8,6 +8,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="TicTacToeCD"/>
 			<item value="TicTacToe1"/>
 			<item value="Tictactoe"/>
 			<item value="TicTacToeGame"/>
