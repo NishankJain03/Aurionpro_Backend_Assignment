@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.aurionpro.behavioural.observer.test.AccountTest"/>
-<fullyQualifiedTypeName name="com.aurionpro.behavioural.observer.model.Account"/>
-<fullyQualifiedTypeName name="com.aurionpro.behavioural.observer.model.SMSNotifier"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="com.aurionpro.behavioural.observer.model.IAccount"/>
-<fullyQualifiedTypeName name="com.aurionpro.behavioural.observer.model.EmailNotifier"/>
-<fullyQualifiedTypeName name="java.util.ListIterator"/>
-<fullyQualifiedTypeName name="java.util.Iterator"/>
-<fullyQualifiedTypeName name="com.aurionpro.behavioural.state.model.Delivered"/>
-<fullyQualifiedTypeName name="com.aurionpro.behavioural.state.model.Shift"/>
 <fullyQualifiedTypeName name="com.aurionpro.behavioural.state.model.IPacket"/>
 <fullyQualifiedTypeName name="com.aurionpro.behavioural.state.model.Ordered"/>
 <fullyQualifiedTypeName name="com.aurionpro.behavioural.state.model.Packet"/>
@@ -46,18 +36,28 @@
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="javax.xml.ws.WebServiceClient"/>
 <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
-<fullyQualifiedTypeName name="java.sql.DriverManager"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="com.aurionpro.model.DBConnection"/>
 <fullyQualifiedTypeName name="com.mysql.cj.xdevapi.Statement"/>
-<fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="com.mysql.cj.xdevapi.Result"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="com.mysql.cj.jdbc.DatabaseMetaData"/>
 <fullyQualifiedTypeName name="java.sql.DatabaseMetaData"/>
 <fullyQualifiedTypeName name="java.sql.ResultSetMetaData"/>
 <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="java.sql.Array"/>
+<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+<fullyQualifiedTypeName name="com.aurionpro.controllers.DbUtil"/>
+<fullyQualifiedTypeName name="com.aurionpro.entities.Student"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.Statement"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="com.aurionpro.model.DbUtil"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.aurionpro.model.Transaction"/>
 </qualifiedTypeNameHistroy>

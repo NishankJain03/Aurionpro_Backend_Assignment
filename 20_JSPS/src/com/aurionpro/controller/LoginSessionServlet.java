@@ -20,17 +20,13 @@ public class LoginSessionServlet extends HttpServlet {
      */
     public LoginSessionServlet() {
         super();
-        // TODO Auto-generated constructor stub
+
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.setContentType("text/html");
-		
-		//
+
 		HttpSession session = request.getSession();
 		String username = request.getParameter("username");
 		session.setAttribute("username", username);
@@ -40,11 +36,9 @@ public class LoginSessionServlet extends HttpServlet {
 		response.getWriter().print("Passowrd: <input type='password' name='password'><br><input type='submit' name='go'>)");
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 
