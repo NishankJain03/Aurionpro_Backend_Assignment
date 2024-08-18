@@ -16,7 +16,7 @@ import javax.servlet.RequestDispatcher;
 import com.aurionpro.model.DbUtil;
 import com.aurionpro.model.TransactionOperation;
 
-@WebServlet("/NewTransactionServlet")
+@WebServlet("/NewTransaction")
 public class NewTransactionServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

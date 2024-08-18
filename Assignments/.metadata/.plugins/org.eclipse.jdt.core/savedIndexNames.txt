@@ -71,7 +71,6 @@ INDEX VERSION 1.130+D:\Training\Assignments\.metadata\.plugins\org.eclipse.jdt.c
 4268093026.index
 3983926257.index
 872587429.index
-1747896416.index
 2750642439.index
 3948064322.index
 208412824.index

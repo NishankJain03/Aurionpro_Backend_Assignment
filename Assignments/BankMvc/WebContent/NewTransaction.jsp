@@ -94,7 +94,7 @@
 <body>
     <div class="container">
         <h2>New Transaction</h2>
-        <form action="NewTransactionServlet" method="post">
+        <form action="NewTransaction" method="post">
             <label for="transactionType">Transaction Type:</label>
             <select id="transactionType" name="transactionType" onchange="toggleAccountNumber()" required>
                 <option value="Debit">Debit</option>
