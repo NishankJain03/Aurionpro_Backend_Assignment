@@ -50,6 +50,9 @@ public class NewTransactionServlet extends HttpServlet {
             switch (transactionType) {
             case "Transfer":
             	int receiverAccountID = transactionOperation.getAccountIDByNumber(accountNumber);
+            	if(senderAccountID == receiverAccountID) {
+            		throw new ServletException("Account ID are same");
+            	}
             	if (receiverAccountID == -1) {
                     throw new ServletException("Receiver account not found.");
                 }

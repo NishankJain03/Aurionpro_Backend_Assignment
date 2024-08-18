@@ -16,7 +16,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        height: 120vh;
     }
     .container {
         background: #ffffff;
@@ -81,6 +81,7 @@
 <body>
     <div class="container">
         <h2>Customer Details</h2>
+        
 
         <table>
             <thead>
@@ -103,7 +104,7 @@
             </tbody>
         </table>
         <br>
-
+		<a href="viewCustomer.jsp">Back to Customer Details</a>
         <a href="Admin.jsp">Back to Home</a>
     </div>
 </body>

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.aurionpro.model.DbUtil;
 import com.aurionpro.model.Transaction;
 
-@WebServlet("/ViewTransactionAdminServlet")
+@WebServlet("/ViewTransactions")
 public class ViewTransactionAdminServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -23,6 +23,10 @@ public class ViewTransactionAdminServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	String search = request.getParameter("search");
+        String type = request.getParameter("type");
+        String startDate = request.getParameter("startDate");
+        String endDate = request.getParameter("endDate");
 //    	String type = request.getParameter("type");
 //    	System.out.println(type);
 //    	if (type == null || type.isEmpty()) {
@@ -31,8 +35,7 @@ public class ViewTransactionAdminServlet extends HttpServlet {
     	List<Transaction> transactions;
         try (Connection connection = DbUtil.getConnection()) { 
             DbUtil dbUtil = new DbUtil(); // Created instance of DbUtil
-            transactions = dbUtil.getAllAdminTransactions(connection);
-//          transactions = dbUtil.getFilteredTransactions(connection, type);
+            transactions = dbUtil.getFilteredTransactions(connection, search, type, startDate, endDate);
             request.setAttribute("transactions", transactions);
             request.getRequestDispatcher("ViewTransactionDetails.jsp").forward(request, response);
         } catch (SQLException e) {

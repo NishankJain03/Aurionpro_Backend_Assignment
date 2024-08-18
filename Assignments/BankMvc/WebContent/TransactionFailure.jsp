@@ -63,7 +63,7 @@
             <div class="alert alert-danger" role="alert">
                 <strong>Error:</strong> ${param.error}
             </div>
-            <a href="CustomerServlet?action=newTransaction" class="btn btn-primary btn-lg">Try Again</a>
+            <a href="Customer?action=newTransaction" class="btn btn-primary btn-lg">Try Again</a>
             <a href="Customer.jsp" class="btn btn-secondary btn-lg ms-3">Back to Dashboard</a>
         </div>
     </div>

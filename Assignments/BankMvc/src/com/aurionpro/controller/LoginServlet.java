@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
         
         if (username.isEmpty() && password.isEmpty() &&  role.isEmpty()) {
         	 request.setAttribute("errorMessage", "Missing username, password, or role.");
-             request.getRequestDispatcher("Login.jsp").forward(request, response);
+             request.getRequestDispatcher("Error.jsp").forward(request, response);
              return;
         }
 
@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
             ResultSet rs = pstmt.executeQuery();
             if (!rs.next()) {
                 request.setAttribute("errorMessage", "Invalid username, password, or role.");
-                request.getRequestDispatcher("Login.jsp").forward(request, response);
+                request.getRequestDispatcher("Error.jsp").forward(request, response);
                 return;
             }
             int userID = rs.getInt("userID");
@@ -60,17 +60,19 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("userID", userID);
             if ("Admin".equalsIgnoreCase(role)) {
+            	request.setAttribute("username", username);
             	request.getRequestDispatcher("Admin.jsp").forward(request, response);	
             	return;
             }
             	
             if ("Customer".equalsIgnoreCase(role)) {
+            	request.setAttribute("username", username);
             	request.getRequestDispatcher("Customer.jsp").forward(request, response);
             	return;
             }
             
             request.setAttribute("errorMessage", "Invalid role.");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("Error.jsp").forward(request, response);
         } catch (SQLException e) {
             throw new ServletException("Database query problem.", e);
         }

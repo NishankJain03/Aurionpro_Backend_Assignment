@@ -15,7 +15,7 @@ import com.aurionpro.model.DbUtil; // Import the DbUtil class
 import com.aurionpro.operation.CustomerOperation;
 import com.aurionpro.operation.AccountOperation;
 
-@WebServlet("/AddBankAccountServlet")
+@WebServlet("/AddBankAccount")
 public class AddBankAccountServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -32,6 +32,12 @@ public class AddBankAccountServlet extends HttpServlet {
                 String customerId = request.getParameter("customerId");
                 CustomerOperation customerOperation = new CustomerOperation();
                 Customer customer = customerOperation.fetchCustomerById(connection, customerId);
+                if (customer == null) {
+                    // No customer found, forward to error page
+                    request.setAttribute("errorMessage", "There's no user with the provided customer ID.");
+                    request.getRequestDispatcher("Error.jsp").forward(request, response);
+                    return;
+                }
                 request.setAttribute("customer", customer);
                 request.getRequestDispatcher("ViewCustomerDetails.jsp").forward(request, response);
                 return;

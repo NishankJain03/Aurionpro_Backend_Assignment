@@ -14,7 +14,7 @@ import javax.servlet.RequestDispatcher;
 import com.aurionpro.model.DbUtil;
 import com.aurionpro.model.UserOperation;
 
-@WebServlet("/UpdateProfileServlet")
+@WebServlet("/UpdateProfile")
 public class UpdateProfileServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -23,15 +23,36 @@ public class UpdateProfileServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
-        String password = request.getParameter("password");
+        String firstName = request.getParameter("firstName").trim();
+        String lastName = request.getParameter("lastName").trim();
+        String password = request.getParameter("password").trim();
+
+        // Validate inputs
+        StringBuilder errorMessages = new StringBuilder();
+
+        if (firstName == null || firstName.length() < 2) {
+            errorMessages.append("First name must be at least 2 characters long.<br>");
+        }
+        if (lastName == null || lastName.length() < 2) {
+            errorMessages.append("Last name must be at least 2 characters long.<br>");
+        }
+        String passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
+        if (password == null || !password.matches(passwordPattern)) {
+            errorMessages.append("Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one digit, and one special character.<br>");
+        }
+
+        if (errorMessages.length() > 0) {
+            request.setAttribute("errorMessage", errorMessages.toString());
+            RequestDispatcher dispatcher = request.getRequestDispatcher("UpdateProfile.jsp");
+            dispatcher.forward(request, response);
+            return;
+        }
 
         HttpSession session = request.getSession();
         Integer userID = (Integer) session.getAttribute("userID");
 
         if (userID == null) {
-        	RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");
             dispatcher.forward(request, response);
             return;
         }
@@ -50,7 +71,7 @@ public class UpdateProfileServlet extends HttpServlet {
                 }
                 RequestDispatcher dispatcher = request.getRequestDispatcher("Customer.jsp");
                 dispatcher.forward(request, response);
-                return;	
+                return;    
             }
             request.setAttribute("errorMessage", "Update failed. Please try again.");
             RequestDispatcher dispatcher = request.getRequestDispatcher("UpdateProfile.jsp");

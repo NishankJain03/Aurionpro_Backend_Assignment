@@ -469,3 +469,66 @@ DBUTIL
 
 
 
+
+
+-- Validation should be there for all fields
+
+
+
+REST
+	--create REST API which generate as per the request
+	--separate the front-end and back-end
+	--server will only give data
+	--client will decide how to represent the data
+	--client -> backend server -> frontend server -> client
+	--request send are the api
+	--REST is not dependent on any technologies
+	--allow crud resources via urls
+
+
+
+SPRING
+
+IOC -> inversion of control framework (transfer of framework)
+	--POJO --> (Plain old java object) Classes
+	--someone else will create a object based on demands(Spring Container)
+SPRING IOC CONTAINER
+	--creates object
+	--hold object into memory
+	--inject one object into another whenever required
+	--two ways for injection - setter and constructor
+
+setter
+	--partial dependencies
+	--overrides constructor injection values
+	--makes bean class more mutable
+
+
+
+spring configuration can be done using
+	--xml
+	--java anotation
+	--java classes
+
+
+
+If we want to treat any class as controller then define it as RestController
+
+
+
+
+
+
+
+REST CONTROLLER--
+	--maps request to request handler method
+
+
+Hibernate
+	--it is used to save the java object into the database
+	--app -> jpa hibernate -> jdbc -> database
+	--handles low level sql
+	--provide object to relationship mapping
+	--minimizes jdbc code
+	--jpa manages the orm 
+

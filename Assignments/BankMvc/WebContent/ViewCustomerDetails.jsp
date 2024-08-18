@@ -97,7 +97,7 @@
 
             <!-- Form to generate an account number -->
             <div class="form-container">
-                <form action="AddBankAccountServlet" method="post">
+                <form action="AddBankAccount" method="post">
                     <input type="hidden" name="action" value="generateAccountNumber">
                     <input type="hidden" name="customerId" value="${customer.getCustomerID()}">
                     <button type="submit">Generate Account Number</button>

@@ -1,7 +1,0 @@
-package com.aurionpro.model;
-
-public class Student {
-	private IStudentService studentservice;
-	
-	
-}

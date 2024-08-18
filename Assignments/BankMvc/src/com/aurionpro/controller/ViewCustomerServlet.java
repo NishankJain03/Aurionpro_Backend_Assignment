@@ -17,8 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.aurionpro.model.Account;
 import com.aurionpro.model.Customer;
 import com.aurionpro.model.DbUtil; // Import DbUtil
+import com.sun.corba.se.spi.orbutil.fsm.Action;
 
-@WebServlet("/ViewCustomerServlet")
+@WebServlet("/ViewCustomerDetails")
 public class ViewCustomerServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -27,9 +28,17 @@ public class ViewCustomerServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	String action = request.getParameter("action");
         List<Customer> customers;
         try (Connection connection = DbUtil.getConnection()) {
-            customers = fetchAllCustomers(connection);
+        	if ("viewDetails".equals(action)) {
+                customers = fetchAllCustomers(connection, null, null); // Fetch all customers
+            } else if ("search".equals(action)) {
+                String searchTerm = request.getParameter("searchTerm");
+                customers = fetchAllCustomers(connection, "search", searchTerm); // Fetch customers based on search term
+            } else {
+                customers = fetchAllCustomers(connection, action, null); // Fetch sorted customers
+            }
             request.setAttribute("customers", customers);
             request.getRequestDispatcher("ViewAllCustomers.jsp").forward(request, response);
         } catch (SQLException e) {
@@ -42,25 +51,55 @@ public class ViewCustomerServlet extends HttpServlet {
         doGet(request, response);
     }
 
-    private List<Customer> fetchAllCustomers(Connection connection) {
+    private List<Customer> fetchAllCustomers(Connection connection, String action, String searchTerm) {
         List<Customer> customers = new ArrayList<>();
-        String query = "SELECT u.FirstName, u.LastName, a.AccountNumber, a.Balance " +
+        StringBuilder query = new StringBuilder("SELECT u.FirstName, u.LastName, a.AccountNumber, a.Balance " +
                        "FROM Customers c " +
                        "JOIN Users u ON c.UserID = u.UserID " +
-                       "LEFT JOIN Accounts a ON c.CustomerID = a.CustomerID";
-        try (PreparedStatement stmt = connection.prepareStatement(query);
-             ResultSet rs = stmt.executeQuery()) {
-            while (rs.next()) {
-                Customer customer = new Customer();
-                customer.setFirstName(rs.getString("FirstName"));
-                customer.setLastName(rs.getString("LastName"));
-                
-                // Creating an Account object and setting account details
-                Account account = new Account(rs.getString("AccountNumber"));
-                account.setBalance(rs.getBigDecimal("Balance"));
+                       "LEFT JOIN Accounts a ON c.CustomerID = a.CustomerID");
+        
+        if ("search".equals(action) && searchTerm != null && !searchTerm.trim().isEmpty()) {
+            query.append(" WHERE u.FirstName LIKE ? OR u.LastName LIKE ? OR a.AccountNumber LIKE ? OR a.Balance LIKE ?");
+        } else if (action != null) {
+            switch(action) {
+                case "firstName":
+                    query.append(" ORDER BY u.FirstName");
+                    break;
+                case "lastName":
+                    query.append(" ORDER BY u.LastName");
+                    break;
+                case "accountNumber":
+                    query.append(" ORDER BY a.AccountNumber");
+                    break;
+                case "balance":
+                    query.append(" ORDER BY a.Balance");
+                    break;
+                default:
+                    System.out.println("Invalid Options");
+            }
+        }
+        
+        
+        try (PreparedStatement stmt = connection.prepareStatement(query.toString())) {
+            if ("search".equals(action) && searchTerm != null && !searchTerm.trim().isEmpty()) {
+                String searchPattern = "%" + searchTerm + "%";
+                stmt.setString(1, searchPattern);
+                stmt.setString(2, searchPattern);
+                stmt.setString(3, searchPattern);
+                stmt.setString(4, searchPattern);
+            }
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    Customer customer = new Customer();
+                    customer.setFirstName(rs.getString("FirstName"));
+                    customer.setLastName(rs.getString("LastName"));
 
-                customer.setAccount(account);
-                customers.add(customer);
+                    Account account = new Account(rs.getString("AccountNumber"));
+                    account.setBalance(rs.getBigDecimal("Balance"));
+
+                    customer.setAccount(account);
+                    customers.add(customer);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();

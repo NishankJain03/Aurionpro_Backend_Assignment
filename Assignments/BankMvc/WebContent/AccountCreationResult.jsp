@@ -31,7 +31,7 @@
         margin-bottom: 20px;
         font-size: 24px;
     }
-    button, a {
+    button, a, .btn {
         padding: 12px 20px;
         font-size: 16px;
         color: #ffffff;
@@ -41,11 +41,11 @@
         cursor: pointer;
         transition: background-color 0.3s, transform 0.2s;
     }
-    button:hover, a:hover {
+    button:hover, a:hover, .btn:hover {
         background-color: #16a085; /* Darker Sea Green */
         transform: scale(1.05);
     }
-    button:active, a:active {
+    button:active, a:active, .btn:active {
         background-color: #149174; /* Even Darker Sea Green */
         transform: scale(0.98);
     }
@@ -61,7 +61,7 @@
     <div class="container">
         <h2>Account Creation Result</h2>
         <p>${result}</p>
-        <a href="AddBankAccount.jsp" class="btn btn-primary">Back to Add Bank Account</a>
+        <a href="Admin.jsp" class="btn">Home</a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -49,7 +49,41 @@
     .text-center {
         margin-top: 20px;
     }
+    .error {
+        color: #e74c3c; /* Bright red */
+        font-size: 0.875em;
+    }
 </style>
+<script>
+    function validateForm() {
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const errors = [];
+
+        // Validation for first name and last name
+        if (!firstName || firstName.length < 2) {
+            errors.push('First name must be at least 2 characters long.');
+        }
+        if (!lastName || lastName.length < 2) {
+            errors.push('Last name must be at least 2 characters long.');
+        }
+
+        // Validation for password
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!passwordPattern.test(password)) {
+            errors.push('Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one digit, and one special character.');
+        }
+
+        // Display errors if any
+        if (errors.length > 0) {
+            document.getElementById('errorMessages').innerHTML = errors.join('<br>');
+            return false;
+        }
+
+        return true;
+    }
+</script>
 </head>
 <body>
     <div class="container">
@@ -58,7 +92,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title text-center mb-4">Edit Profile</h4>
-                        <form action="UpdateProfileServlet" method="get">
+                        <form action="UpdateProfile" method="get" onsubmit="return validateForm()">
+                            <div id="errorMessages" class="error mb-3"></div>
                             <div class="form-group mb-3">
                                 <label for="firstName">First Name:</label>
                                 <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Enter your first name" required>

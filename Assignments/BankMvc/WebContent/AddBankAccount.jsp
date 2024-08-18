@@ -51,7 +51,12 @@
         border-color: #007bff;
         outline: none;
     }
-    button {
+    .button-container {
+        display: flex;
+        gap: 10px; /* Space between button and link */
+        margin-top: 20px; /* Space above the button-container */
+    }
+    button, .btn {
         padding: 10px 20px;
         font-size: 16px;
         color: #fff;
@@ -61,7 +66,7 @@
         cursor: pointer;
         transition: background-color 0.3s;
     }
-    button:hover {
+    button:hover, .btn:hover {
         background-color: #16a085; /* Darker Sea Green */
     }
     p {
@@ -73,11 +78,14 @@
 <body>
     <div class="container">
         <h1>Search Customer</h1>
-        <form action="AddBankAccountServlet" method="get">
+        <form action="AddBankAccount" method="post">
             <input type="hidden" name="action" value="searchCustomer">
             <p>Search Customer by ID:</p>
             <input type="text" name="customerId" required placeholder="Enter Customer ID">
-            <button type="submit">Search</button>
+            <div class="button-container">
+                <button type="submit">Search</button>
+                <a href="Admin.jsp?action=cancel" class="btn">Home</a>
+            </div>
         </form>
     </div>
 </body>

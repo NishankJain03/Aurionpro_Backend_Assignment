@@ -72,7 +72,7 @@
         </div>
         <h1 class="display-4 text-success">Transaction Successful</h1>
         <p class="lead">Your transaction was completed successfully. Thank you for using our services!</p>
-        <a href="CustomerServlet?action=passbook" class="btn btn-custom btn-lg">Go to Passbook</a>
+        <a href="Customer?action=passbook" class="btn btn-custom btn-lg">Go to Passbook</a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

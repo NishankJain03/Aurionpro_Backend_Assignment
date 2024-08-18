@@ -10,29 +10,27 @@
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f0f2f5;
+        background-color: #f4f7fa; /* Light slate background */
         margin: 0;
-        padding: 10px;
+        padding: 0;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 120vh;
-        margin-top: 20px
+        height: 180vh;
     }
     .container {
-        max-width: 1000px;
-        width: 100%;
-        padding: 20px;
         background: #ffffff;
+        padding: 20px;
         border-radius: 8px;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        margin-top:70px;
+        text-align: center;
+        width: 100%;
+        max-width: 1000px; /* Adjusted for consistency */
     }
     h2 {
         color: #333;
         margin-bottom: 20px;
         font-size: 28px;
-        text-align: center;
     }
     table {
         width: 100%;
@@ -47,7 +45,7 @@
         text-align: left;
     }
     th {
-        background-color: #007bff;
+        background-color: #1abc9c; /* Sea Green */
         color: #ffffff;
         font-size: 18px;
     }
@@ -61,37 +59,39 @@
     a {
         display: inline-block;
         margin-top: 20px;
-        padding: 10px 20px;
+        padding: 12px 20px;
         font-size: 16px;
         color: #ffffff;
-        background-color: #007bff;
+        background-color: #1abc9c; /* Sea Green */
         text-decoration: none;
         border-radius: 5px;
         transition: background-color 0.3s, transform 0.2s;
     }
     a:hover {
-        background-color: #0056b3;
+        background-color: #16a085; /* Darker Sea Green */
         transform: scale(1.05);
     }
     a:active {
-        background-color: #004494;
+        background-color: #149174; /* Even Darker Sea Green */
         transform: scale(0.98);
     }
 </style>
 </head>
 <body>
     <div class="container">
-    
         <h2>Transaction Details</h2>
-       <!-- <form action="ViewTransactionAdminServlet" method="get">
-                <label for="type">Filter by type:</label>
-                <select name="type" id="type" onchange="this.form.submit()">
-                    <option value="all" ${param.type == 'all' ? 'selected' : ''}>All</option>
-                    <option value="Credit" ${param.type == 'Credit' ? 'selected' : ''}>Credit</option>
-                    <option value="Debit" ${param.type == 'Debit' ? 'selected' : ''}>Debit</option>
-                    <option value="Transfer" ${param.type == 'Transfer' ? 'selected' : ''}>Transfer</option>
-                </select>
-            </form> -->
+        <!-- Uncomment the form if you need filters -->
+        <!--
+        <form action="ViewTransactionAdminServlet" method="get">
+            <label for="type">Filter by type:</label>
+            <select name="type" id="type" onchange="this.form.submit()">
+                <option value="all" ${param.type == 'all' ? 'selected' : ''}>All</option>
+                <option value="Credit" ${param.type == 'Credit' ? 'selected' : ''}>Credit</option>
+                <option value="Debit" ${param.type == 'Debit' ? 'selected' : ''}>Debit</option>
+                <option value="Transfer" ${param.type == 'Transfer' ? 'selected' : ''}>Transfer</option>
+            </select>
+        </form>
+        -->
         <table>
             <thead>
                 <tr>

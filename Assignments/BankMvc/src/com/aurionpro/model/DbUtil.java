@@ -5,8 +5,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class DbUtil {
     private static final String URL = "jdbc:mysql://localhost:3306/bankmvc";
@@ -88,6 +91,151 @@ public class DbUtil {
         }
         return transactions;
     }
+   
+    public List<Transaction> getFilteredTransactions(Connection connection, String search, String type, String startDate, String endDate) throws SQLException {
+        List<Transaction> transactions = new ArrayList<>();
+        StringBuilder query = new StringBuilder("SELECT " +
+                "s.AccountNumber AS SenderAccountNumber, " +
+                "r.AccountNumber AS ReceiverAccountNumber, " +
+                "t.TransactionType, " +
+                "t.Amount, " +
+                "t.TransactionDate " +
+                "FROM Transactions t " +
+                "JOIN Accounts s ON t.SenderAccountID = s.AccountID " +
+                "LEFT JOIN Accounts r ON t.ReceiverAccountID = r.AccountID " +
+                "JOIN Customers c ON s.CustomerID = c.CustomerID " +
+                "WHERE 1=1");
+
+        if (search != null && !search.isEmpty()) {
+            query.append(" AND (s.AccountNumber LIKE ? OR r.AccountNumber LIKE ? OR t.TransactionType LIKE ?)");
+        }
+        if (type != null && !type.isEmpty()) {
+            query.append(" AND t.TransactionType = ?");
+        }
+        if (startDate != null && !startDate.isEmpty()) {
+            query.append(" AND t.TransactionDate >= ?");
+        }
+        if (endDate != null && !endDate.isEmpty()) {
+            query.append(" AND t.TransactionDate <= ?");
+        }
+
+        try (PreparedStatement stmt = connection.prepareStatement(query.toString())) {
+            int paramIndex = 1;
+            if (search != null && !search.isEmpty()) {
+                stmt.setString(paramIndex++, "%" + search + "%");
+                stmt.setString(paramIndex++, "%" + search + "%");
+                stmt.setString(paramIndex++, "%" + search + "%");
+            }
+            if (type != null && !type.isEmpty()) {
+                stmt.setString(paramIndex++, type);
+            }
+            if (startDate != null && !startDate.isEmpty()) {
+                stmt.setTimestamp(paramIndex++, convertStringToTimestamp(startDate));
+            }
+            if (endDate != null && !endDate.isEmpty()) {
+                stmt.setTimestamp(paramIndex++, convertStringToTimestamp(endDate));
+            }
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    transactions.add(new Transaction(
+                        rs.getString("SenderAccountNumber"),
+                        rs.getString("ReceiverAccountNumber"),
+                        rs.getString("TransactionType"),
+                        rs.getBigDecimal("Amount"),
+                        rs.getTimestamp("TransactionDate")
+                    ));
+                }
+            }
+        }
+        return transactions;
+    }
+
+    private Timestamp convertStringToTimestamp(String dateString) {
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            java.util.Date parsedDate = sdf.parse(dateString);
+            return new Timestamp(parsedDate.getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null; // Or throw an exception if you prefer
+        }
+    }
+    
+    public List<Transaction> getFilteredTransactions(Connection connection, Integer userID, String search, String type, String startDate, String endDate, String sortBy, String sortOrder) throws SQLException {
+        List<Transaction> transactions = new ArrayList<>();
+        StringBuilder query = new StringBuilder("SELECT " +
+                "sa.AccountNumber AS SenderAccountNumber, " +
+                "COALESCE(ra.AccountNumber, 'N/A') AS ReceiverAccountNumber, " +
+                "t.TransactionType, " +
+                "t.Amount, " +
+                "t.TransactionDate " +
+                "FROM Transactions t " +
+                "JOIN Accounts sa ON t.SenderAccountID = sa.AccountID " +
+                "LEFT JOIN Accounts ra ON t.ReceiverAccountID = ra.AccountID " +
+                "JOIN Customers c ON sa.CustomerID = c.CustomerID " +
+                "JOIN Users u ON c.UserID = u.UserID " +
+                "WHERE u.UserID = ?");
+
+        // Add filters based on search parameters
+        if (search != null && !search.isEmpty()) {
+            query.append(" AND (sa.AccountNumber LIKE ? OR ra.AccountNumber LIKE ? OR t.TransactionType LIKE ?)");
+        }
+        if (type != null && !type.isEmpty()) {
+            query.append(" AND t.TransactionType = ?");
+        }
+        if (startDate != null && !startDate.isEmpty()) {
+            query.append(" AND t.TransactionDate >= ?");
+        }
+        if (endDate != null && !endDate.isEmpty()) {
+            query.append(" AND t.TransactionDate <= ?");
+        }
+
+        // Append sorting
+        query.append(" ORDER BY ").append(sortBy).append(" ").append(sortOrder);
+
+        try (PreparedStatement stmt = connection.prepareStatement(query.toString())) {
+            int paramIndex = 1;
+            stmt.setInt(paramIndex++, userID);
+
+            // Set parameters for search
+            if (search != null && !search.isEmpty()) {
+                stmt.setString(paramIndex++, "%" + search + "%");
+                stmt.setString(paramIndex++, "%" + search + "%");
+                stmt.setString(paramIndex++, "%" + search + "%");
+            }
+            // Set parameters for type
+            if (type != null && !type.isEmpty()) {
+                stmt.setString(paramIndex++, type);
+            }
+            // Set parameters for date range
+            if (startDate != null && !startDate.isEmpty()) {
+                stmt.setTimestamp(paramIndex++, convertStringToTimestamp(startDate));
+            }
+            if (endDate != null && !endDate.isEmpty()) {
+                stmt.setTimestamp(paramIndex++, convertStringToTimestamp(endDate));
+            }
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    transactions.add(new Transaction(
+                        rs.getString("SenderAccountNumber"),
+                        rs.getString("ReceiverAccountNumber"),
+                        rs.getString("TransactionType"),
+                        rs.getBigDecimal("Amount"),
+                        rs.getTimestamp("TransactionDate")
+                    ));
+                }
+            }
+        }
+        return transactions;
+    }
+
+
+
+
+    
+    
 //    public List<Transaction> getFilteredTransactions(Connection connection, String type) throws SQLException {
 //        List<Transaction> transactions = new ArrayList<>();
 //        String query = "SELECT " +
@@ -137,4 +285,5 @@ public class DbUtil {
 //        return transactions;
 //    
 //    }
+    
 }

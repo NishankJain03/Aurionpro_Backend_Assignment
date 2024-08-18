@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.aurionpro.model.DbUtil;
 import com.aurionpro.model.Transaction;
 
-@WebServlet("/PassbookServlet")
+@WebServlet("/Passbook")
 public class PassbookServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -32,13 +32,30 @@ public class PassbookServlet extends HttpServlet {
             return;
         }
 
-        // Got a connection from DbUtil
+        String type = request.getParameter("type");
+        String startDate = request.getParameter("startDate");
+        String endDate = request.getParameter("endDate");
+        String sortBy = request.getParameter("sortBy");
+        String sortOrder = request.getParameter("sortOrder");
+
+        if (sortBy == null || sortBy.isEmpty()) {
+            sortBy = "TransactionDate"; // Default sorting by date
+        }
+        if (sortOrder == null || sortOrder.isEmpty()) {
+            sortOrder = "DESC"; // Default sorting in descending order
+        }
+
         try (Connection connection = DbUtil.getConnection()) {
-            // Used the connection to get transactions
             DbUtil dbUtil = new DbUtil();
-            List<Transaction> transactions = dbUtil.getAllTransactions(connection, userID);
+            List<Transaction> transactions = dbUtil.getFilteredTransactions(connection, userID, null, type, startDate, endDate, sortBy, sortOrder);
             
             request.setAttribute("transactions", transactions);
+            request.setAttribute("type", type);
+            request.setAttribute("startDate", startDate);
+            request.setAttribute("endDate", endDate);
+            request.setAttribute("sortBy", sortBy);
+            request.setAttribute("sortOrder", sortOrder);
+
             request.getRequestDispatcher("PassbookView.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();

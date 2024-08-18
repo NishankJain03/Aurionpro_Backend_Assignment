@@ -56,7 +56,7 @@
         border-color: #007bff; /* Blue focus */
         outline: none;
     }
-    button {
+    button , .btn{
         padding: 10px 20px;
         font-size: 16px;
         color: #fff;
@@ -66,7 +66,7 @@
         cursor: pointer;
         transition: background-color 0.3s;
     }
-    button:hover {
+    button:hover, .btn:hover {
         background-color: #16a085; /* Darker Sea Green */
     }
     .form-actions {
@@ -75,6 +75,9 @@
         justify-content: center;
     }
     .form-actions button {
+        width: 150px;
+    }
+    .form-actions .btn {
         width: 150px;
     }
 </style>
@@ -97,8 +100,9 @@
 
             <div class="form-actions">
                 <button type="submit" name="action" value="submit">Add Customer</button>
-                <button type="reset" name="action" value="cancel">Cancel</button>
+                <a href="Admin.jsp?action=cancel" class="btn">Cancel</a>
             </div>
+            
             
             <c:if test="${not empty error}">
                 <div style="color: red; margin-top: 10px;">
