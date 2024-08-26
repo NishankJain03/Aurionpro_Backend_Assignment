@@ -515,11 +515,6 @@ spring configuration can be done using
 If we want to treat any class as controller then define it as RestController
 
 
-
-
-
-
-
 REST CONTROLLER--
 	--maps request to request handler method
 
@@ -532,3 +527,33 @@ Hibernate
 	--minimizes jdbc code
 	--jpa manages the orm 
 
+for every entity we have controller, service , repository
+
+
+repo -> only brings data
+service -> will perform certain operations on data
+
+entity -> repo -> service -> controller
+
+
+if record search by primary key or expecting single record -> then go for path variable
+if more than one record -> request param
+
+if search for other than primary key -> use request param
+
+Request Param -> ?
+Path Variable -> /
+
+
+instead of making dto for various client etc we can make the pageResponse as generic ie <T> and in the service
+lets say forStudent it will be
+
+PageResponse<Student>
+
+any update need to be done through body
+
+
+FOR ONE - MANY (one side primary key as a foreign key in many )
+
+
+communication happens through object

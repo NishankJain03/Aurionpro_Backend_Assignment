@@ -46,6 +46,8 @@
 		<item value="78" key="DIALOG_X_ORIGIN"/>
 		<item value="13" key="DIALOG_Y_ORIGIN"/>
 	</section>
+	<section name="BreadcrumbItemDropDown">
+	</section>
 	<section name="OverrideMethodDialog">
 		<item value="true" key="showtypes"/>
 	</section>

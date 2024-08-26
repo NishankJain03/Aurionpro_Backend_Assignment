@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
-<fullyQualifiedTypeName name="java.sql.Date"/>
-<fullyQualifiedTypeName name="org.omg.CosNaming.NamingContextExtPackage.StringNameHelper"/>
-<fullyQualifiedTypeName name="org.omg.CORBA.PUBLIC_MEMBER"/>
-<fullyQualifiedTypeName name="com.mysql.cj.jdbc.interceptors.ServerStatusDiffInterceptor"/>
-<fullyQualifiedTypeName name="java.lang.Void"/>
-<fullyQualifiedTypeName name="com.aurionpro.model.QueriesMenu"/>
 <fullyQualifiedTypeName name="com.mysql.cj.protocol.Resultset"/>
 <fullyQualifiedTypeName name="com.aurionpro.test.BatchProcessingStatementTest"/>
 <fullyQualifiedTypeName name="com.aurionpro.model.BatchProcessingStatement"/>
 <fullyQualifiedTypeName name="com.mysql.cj.xdevapi.Statement"/>
-<fullyQualifiedTypeName name="java.lang.Double"/>
 <fullyQualifiedTypeName name="javax.swing.text.html.HTMLDocument.HTMLReader.PreAction"/>
 <fullyQualifiedTypeName name="com.aurionpro.model.BatchProcessingPrepared"/>
 <fullyQualifiedTypeName name="com.aurionpro.model.TransactionManagement"/>
@@ -27,7 +18,6 @@
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="com.aurionpro.model.Account"/>
-<fullyQualifiedTypeName name="com.aurionpro.model.Transaction"/>
 <fullyQualifiedTypeName name="java.sql.DriverManager"/>
 <fullyQualifiedTypeName name="com.mysql.cj.result.StringValueFactory"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
@@ -39,9 +29,7 @@
 <fullyQualifiedTypeName name="com.aurionpro.operation.AccountOperation"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
-<fullyQualifiedTypeName name="java.util.stream.Collectors"/>
 <fullyQualifiedTypeName name="java.math.BigDecimal"/>
-<fullyQualifiedTypeName name="java.sql.Timestamp"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="com.aurionpro.model.DbUtil"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
@@ -54,10 +42,22 @@
 <fullyQualifiedTypeName name="javax.swing.plaf.synth.SynthScrollBarUI"/>
 <fullyQualifiedTypeName name="com.aurionpro.model.Palindrome"/>
 <fullyQualifiedTypeName name="com.aurionpro.model.ArrayOperation"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.jar.Attributes.Name"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="com.aurionpro.model.Product"/>
 <fullyQualifiedTypeName name="java.lang.Process"/>
+<fullyQualifiedTypeName name="java.sql.Timestamp"/>
+<fullyQualifiedTypeName name="java.util.stream.Collector"/>
+<fullyQualifiedTypeName name="com.aurionpro.model.StreamEmployee"/>
+<fullyQualifiedTypeName name="java.lang.Double"/>
+<fullyQualifiedTypeName name="com.aurionpro.model.OrderStatus"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="com.aurionpro.model.Product"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.time.LocalDate"/>
+<fullyQualifiedTypeName name="com.aurionpro.model.Transaction"/>
 </qualifiedTypeNameHistroy>

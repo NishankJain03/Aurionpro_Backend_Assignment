@@ -11,5 +11,4 @@ public class ComputerTest {
 		System.out.println(computer);
 
 	}
-
 }
