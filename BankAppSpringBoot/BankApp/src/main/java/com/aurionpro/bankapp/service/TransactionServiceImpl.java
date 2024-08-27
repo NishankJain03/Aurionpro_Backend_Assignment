@@ -1,14 +1,21 @@
 package com.aurionpro.bankapp.service;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.aurionpro.bankapp.dto.TransactionDto;
 import com.aurionpro.bankapp.entity.Accounts;
+import com.aurionpro.bankapp.entity.Customer;
 import com.aurionpro.bankapp.entity.Transaction;
 import com.aurionpro.bankapp.entity.TransactionStatus;
 import com.aurionpro.bankapp.repository.AccountsRepository;
+import com.aurionpro.bankapp.repository.CustomerRepository;
 import com.aurionpro.bankapp.repository.TransactionRepository;
 
 @Service
@@ -19,6 +26,9 @@ public class TransactionServiceImpl implements TransactionService{
 
     @Autowired
     private TransactionRepository transactionRepository;
+    
+    @Autowired
+    private CustomerRepository customerRepository;
 
 	@Override
 	public Transaction processTransaction(long senderAccountId, Long receiverAccountId, Transaction transaction) {
@@ -71,6 +81,49 @@ public class TransactionServiceImpl implements TransactionService{
             accountsRepository.save(transaction.getReceiverAccount());
         }
         return transactionRepository.save(transaction);
+	}
+	
+	public Transaction toTransactionMapper(TransactionDto transactionDto) {
+		Transaction transaction = new Transaction();
+		transaction.setSenderAccount(transactionDto.getSenderAccount());
+		transaction.setReceiverAccount(transactionDto.getReceiverAccount());
+		transaction.setTransactionAmount(transactionDto.getTransactionAmount());
+		transaction.setTransactionDate(transactionDto.getTransactionDate());
+		transaction.setTransactionStatus(transactionDto.getTransactionStatus());
+		return transaction;
+	}
+	
+	public TransactionDto toTransactionDtoMapper(Transaction transaction) {
+		TransactionDto transactionDto = new TransactionDto();
+		transactionDto.setSenderAccount(transaction.getSenderAccount());
+		transactionDto.setReceiverAccount(transaction.getReceiverAccount());
+		transactionDto.setTransactionAmount(transaction.getTransactionAmount());
+		transactionDto.setTransactionDate(transaction.getTransactionDate());
+		transactionDto.setTransactionStatus(transaction.getTransactionStatus());
+		return transactionDto;
+	}
+
+	@Override
+	public List<TransactionDto> getTransactionsByUserId(int userId) {
+		Customer customer = customerRepository.findByUser_UserId(userId);
+        
+        // Collect all accounts for this customer
+        Set<Accounts> accounts = new HashSet<>(customer.getAccounts());
+
+        // Fetch transactions for each account
+        Set<Transaction> transactions = new HashSet<>();
+        for (Accounts account : accounts) {
+            transactions.addAll(transactionRepository.findBySenderAccount(account));
+            transactions.addAll(transactionRepository.findByReceiverAccount(account));
+            
+        }
+
+        List<TransactionDto> transactionDtos = new ArrayList<>();
+        for (Transaction transaction : transactions) {
+            transactionDtos.add(toTransactionDtoMapper(transaction));
+        }
+
+        return transactionDtos;
 	}
 	
 }

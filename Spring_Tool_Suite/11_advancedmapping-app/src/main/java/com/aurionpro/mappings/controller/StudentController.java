@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.aurionpro.mappings.dto.PageResponse;
+import com.aurionpro.mappings.dto.StudentDto;
 import com.aurionpro.mappings.entity.Address;
+import com.aurionpro.mappings.entity.Course;
 import com.aurionpro.mappings.entity.Student;
 import com.aurionpro.mappings.service.StudentService;
 
@@ -25,8 +28,13 @@ public class StudentController {
 	private StudentService studentService;
 	
 	@PostMapping("/students")
-	public ResponseEntity<Student> addNewStudent(@RequestBody Student student){
+	public ResponseEntity<StudentDto> addNewStudent(@RequestBody Student student){
 		return ResponseEntity.ok(studentService.addStudent(student));
+	}
+	
+	@GetMapping("/getAllStudent")
+	public ResponseEntity<PageResponse<StudentDto>> getAllStudents(@RequestParam int pageNumber, @RequestParam int pageSize){
+		return ResponseEntity.ok(studentService.getAllStudents(pageNumber,pageSize));
 	}
 	
 	@GetMapping("/students")
@@ -43,5 +51,15 @@ public class StudentController {
 	public String updateAddress(@RequestParam int rollnumber, @RequestParam String city){
 		studentService.updateStudentAddress(rollnumber, city);
 		return "Updated the record";
+	}
+	
+	@PostMapping("/student/course")
+	public ResponseEntity<StudentDto> assignCourse(@RequestParam int rollNumber, @RequestBody List<Integer> courseIds){
+		return ResponseEntity.ok(studentService.assignCourses(rollNumber, courseIds));
+	}
+	
+	@GetMapping("/get/student/instructor")
+	public ResponseEntity<List<StudentDto>> getStudentInstructor(@RequestParam int instructorId){
+		return ResponseEntity.ok(studentService.getStudentInstructor(instructorId));
 	}
 }

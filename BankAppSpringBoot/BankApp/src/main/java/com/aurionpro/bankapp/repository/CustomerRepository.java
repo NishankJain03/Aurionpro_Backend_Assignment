@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.aurionpro.bankapp.entity.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, Integer>{
-
+	Customer findByUser_UserId(int userId);
 }

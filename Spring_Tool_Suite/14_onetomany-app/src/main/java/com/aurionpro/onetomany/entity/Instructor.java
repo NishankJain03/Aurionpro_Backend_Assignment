@@ -12,6 +12,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,12 +32,17 @@ public class Instructor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int instructorId;
 	
+	@NotNull(message = "Name should not be null")
+	@Pattern(regexp = "^[A-Za-z]+$", message = "Instructor name must only contain alphabetic characters")
 	@Column(name = "instructorName")
 	private String instructorName;
 	
+	@NotNull(message = "Email should not be null")
+	@Pattern(regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$", message = "Email should be valid")
 	@Column(name = "email")
 	private String email;
 	
+	@NotNull(message = "Qualifications should not be null")
 	@Column(name = "qualifications")
 	private String qualification;
 	

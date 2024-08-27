@@ -58,36 +58,29 @@ public class InstructorServiceImpl implements InstructorService{
 	}
 	@Override
 	public Instructor allocateCourses(int instructorId, List<Course> course) {
-		Optional<Instructor> instructor = instructorRepository.findById(instructorId);
-		if(!instructor.isPresent())
-			return null;
-		Instructor dbInstructor = instructor.get();
-		List<Course> dbCourse = dbInstructor.getCourses();
+		Instructor instructor = instructorRepository.findById(instructorId).orElseThrow(() -> new NullPointerException("Instructor not found"));
+		List<Course> dbCourse = instructor.getCourses();
 		course.forEach((courses) -> {
 			Course temp = courseRepository.findById(courses.getCourseId()).get();
-			temp.setInstructor(dbInstructor);
+			temp.setInstructor(instructor);
 			
 			dbCourse.add(temp);
 		});
-		dbInstructor.setCourses(dbCourse);
-		return instructorRepository.save(dbInstructor);
+		instructor.setCourses(dbCourse);
+		return instructorRepository.save(instructor);
 	}
 
 	@Override
 	public InstructorDto getInstructor(int instructorId) {	
-		 Optional<Instructor> optionalInstructor = instructorRepository.findById(instructorId);
-		 if(!optionalInstructor.isPresent())
-			 return null;
-		 return (instructorDtoToInstructorMapper(optionalInstructor.get()));
+		 Instructor optionalInstructor = instructorRepository.findById(instructorId).orElseThrow(() -> new NullPointerException("Instructor not found"));
+		 return (instructorDtoToInstructorMapper(optionalInstructor));
 		 
 	}
 
 	@Override
 	public List<CourseDto> getInstructorCourses(int instructorId) {
-		Optional<Instructor> optionalCourse = instructorRepository.findById(instructorId);
-		if(!optionalCourse.isPresent())
-			return null;
-		List<Course> courses = optionalCourse.get().getCourses();
+		Instructor optionalCourse = instructorRepository.findById(instructorId).orElseThrow(() -> new NullPointerException("Instructor not found"));
+		List<Course> courses = optionalCourse.getCourses();
 		List<CourseDto> courseDto = new ArrayList<>();
 		for(Course course : courses) {
 			courseDto.add(CourseDtoMapper(course));

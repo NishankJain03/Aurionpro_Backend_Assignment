@@ -9,6 +9,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,12 +30,16 @@ public class Course {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int courseId;
 	
+	@NotBlank(message = "Name must be not blank")
+	@Pattern(regexp = "^[A-Za-z]+$", message = "Course name must only contain alphabetic characters")
 	@Column(name = "courseName")
 	private String courseName;
 	
+	@Positive(message = "Duration should be in positive")
 	@Column(name = "duration")
 	private int duration;
 	
+	@Positive(message = "Fees should be in positive")
 	@Column(name = "fees")
 	private double fees;
 	

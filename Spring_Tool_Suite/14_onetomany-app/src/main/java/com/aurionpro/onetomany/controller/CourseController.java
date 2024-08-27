@@ -1,7 +1,10 @@
 package com.aurionpro.onetomany.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +33,16 @@ public class CourseController {
 	@PutMapping("/courses/instructors")
 	public ResponseEntity<Course> allocateInstructor(@RequestParam int courseId, @RequestBody Instructor instructor){
 		return ResponseEntity.ok(courseService.allocateInstructor(courseId, instructor));
+	}
+	
+	@GetMapping("/getAllCourse")
+	public ResponseEntity<List<CourseDto>> getAllCourse(){
+		return ResponseEntity.ok(courseService.getAllCourses());
+	}
+	
+	@GetMapping("/getCourseById")
+	public ResponseEntity<CourseDto> getCourseById(@RequestParam int courseId){
+		return ResponseEntity.ok(courseService.getCourseById(courseId));
 	}
 }
 

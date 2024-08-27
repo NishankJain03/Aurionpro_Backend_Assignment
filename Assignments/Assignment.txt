@@ -555,5 +555,6 @@ any update need to be done through body
 
 FOR ONE - MANY (one side primary key as a foreign key in many )
 
-
 communication happens through object
+
+Many - Many -> a third table if form which contain primary key of both

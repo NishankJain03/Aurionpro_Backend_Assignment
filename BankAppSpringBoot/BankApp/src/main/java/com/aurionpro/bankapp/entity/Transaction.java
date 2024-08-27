@@ -2,6 +2,8 @@ package com.aurionpro.bankapp.entity;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,15 +36,17 @@ public class Transaction {
 	private TransactionStatus transactionStatus;
 	
 	@Column(name = "transactionAmount")
-	private double transactionAmount;
+	private double transactionAmount;		
 	
 	@Column(name = "transactionDate")
 	private LocalDate transactionDate;
 	
+	@JsonIgnore
 	@ManyToOne
     @JoinColumn(name = "senderAccountId", referencedColumnName = "accountId")
     private Accounts senderAccount;
 
+	@JsonIgnore
     @ManyToOne
     @JoinColumn(name = "receiverAccountId", referencedColumnName = "accountId")
     private Accounts receiverAccount;

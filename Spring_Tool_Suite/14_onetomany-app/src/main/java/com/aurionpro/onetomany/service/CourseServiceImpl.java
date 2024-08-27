@@ -1,5 +1,7 @@
 package com.aurionpro.onetomany.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,15 +33,44 @@ public class CourseServiceImpl implements CourseService{
 
 	@Override
 	public Course allocateInstructor(int courseId, Instructor instructor) {
-		Optional<Course> course = courseRepository.findById(courseId);
-		Optional<Instructor> OptionalInstructor = instructorRepository.findById(instructor.getInstructorId());
-		Instructor dbInstructor = OptionalInstructor.get();
-		if(!course.isPresent())
-			return null;
-		Course dbCourse = course.get();
-		dbCourse.setInstructor(dbInstructor);
+		Course course = courseRepository.findById(courseId).orElseThrow(() -> new NullPointerException("Course not found"));
+		Instructor OptionalInstructor = instructorRepository.findById(instructor.getInstructorId()).orElseThrow(() -> new NullPointerException("Instructor not found"));
+		course.setInstructor(OptionalInstructor);
 		
-		return courseRepository.save(dbCourse);
+		return courseRepository.save(course);
+	}
+	
+	public Course toCourseMapper(CourseDto courseDto) {
+		Course course = new Course();
+		course.setCourseName(courseDto.getCourseName());
+		course.setDuration(courseDto.getDuration());
+		course.setFees(courseDto.getFees());
+		return course;
+	}
+	
+	public CourseDto toCourseDtoMapper(Course course) {
+		CourseDto courseDto = new CourseDto();
+		courseDto.setCourseId(course.getCourseId());
+		courseDto.setCourseName(course.getCourseName());
+		courseDto.setDuration(course.getDuration());
+		courseDto.setFees(course.getFees());
+		return courseDto;
+	}
+
+	@Override
+	public List<CourseDto> getAllCourses() {
+		List<Course> optionalCourse = courseRepository.findAll();
+		List<CourseDto> courseDto = new ArrayList<>();
+		for(Course dbCourse : optionalCourse) {
+			courseDto.add(toCourseDtoMapper(dbCourse));
+		}
+		return courseDto;
+ 	}
+
+	@Override
+	public CourseDto getCourseById(int courseId) {
+		Course optionalCourse = courseRepository.findById(courseId).orElseThrow(()-> new NullPointerException("Course not Found"));
+		return toCourseDtoMapper(optionalCourse);
 	}
 
 	
