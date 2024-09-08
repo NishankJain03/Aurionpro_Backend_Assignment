@@ -1,0 +1,3 @@
+TransactionId,TransactionAmount,TransactionDate,TransactionStatus,SenderAccount,ReceiverAccount
+1,2000.000000,2024-08-31,CREDIT,7254217313,self
+2,2000.000000,2024-08-31,TRANSFER,7254217313,3561427747

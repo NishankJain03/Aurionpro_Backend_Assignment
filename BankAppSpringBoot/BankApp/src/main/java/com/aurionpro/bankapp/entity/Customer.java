@@ -14,6 +14,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -26,7 +29,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 public class Customer {
 	
 	@Column(name = "customerId")
@@ -34,13 +36,35 @@ public class Customer {
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private int customerId;
 	
+	@Column(name = "firstName")
+	@Pattern(regexp = "^[a-zA-Z]+$", message = "Only alphabetic characters are allowed")
+	@NotNull(message = "FirstName cannot be null")
+	@NotBlank(message = "FirstName cannot be blank")
+    private String firstName;
+
+    @Column(name = "lastName")
+    @Pattern(regexp = "^[a-zA-Z]+$", message = "Only alphabetic characters are allowed")
+	@NotNull(message = "Lastname cannot be null")
+	@NotBlank(message = "lastname cannot be blank")
+    private String lastName;
+
+    @Column(name = "email")
+    @Pattern(regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$", message = "Invalid email address")
+	@NotNull(message = "Email cannot be null")
+	@NotBlank(message = "Eamil cannot be blank")
+    private String email;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "userId")
 	private User user;
 	
 	@JsonManagedReference
 	@OneToMany(mappedBy = "customer", cascade = {CascadeType.REFRESH, CascadeType.MERGE, CascadeType.DETACH})
-	List<Accounts> accounts;
+	private List<Account> accounts;
+	
+	@JsonManagedReference
+    @OneToMany(mappedBy = "customer", cascade = {CascadeType.REFRESH, CascadeType.MERGE, CascadeType.DETACH})
+    private List<Document> documents;
 	
 	
 }

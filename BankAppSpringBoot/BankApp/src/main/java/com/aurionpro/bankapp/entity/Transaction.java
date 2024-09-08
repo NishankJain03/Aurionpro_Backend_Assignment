@@ -1,6 +1,6 @@
 package com.aurionpro.bankapp.entity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -39,15 +39,15 @@ public class Transaction {
 	private double transactionAmount;		
 	
 	@Column(name = "transactionDate")
-	private LocalDate transactionDate;
+	private LocalDateTime transactionDate;
 	
 	@JsonIgnore
 	@ManyToOne
     @JoinColumn(name = "senderAccountId", referencedColumnName = "accountId")
-    private Accounts senderAccount;
+    private Account senderAccount;
 
 	@JsonIgnore
     @ManyToOne
     @JoinColumn(name = "receiverAccountId", referencedColumnName = "accountId")
-    private Accounts receiverAccount;
+    private Account receiverAccount;
 }

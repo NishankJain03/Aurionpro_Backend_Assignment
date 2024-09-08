@@ -1,5 +1,7 @@
 package com.aurionpro.bankapp.dto;
 
+import com.aurionpro.bankapp.entity.AccountStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,10 +11,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
-	private int userId;
-	private String firstName;
-	private String lastName;
-	private String email;
-	private String password;
+public class AccountDto {
+	private int accountId;
+	private long accountNumber;
+	private double balance;
+	private AccountStatus accountStatus;
 }

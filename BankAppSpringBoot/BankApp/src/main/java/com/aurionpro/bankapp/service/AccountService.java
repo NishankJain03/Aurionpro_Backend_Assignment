@@ -1,7 +1,10 @@
 package com.aurionpro.bankapp.service;
 
-import com.aurionpro.bankapp.entity.Accounts;
+import java.util.List;
+
+import com.aurionpro.bankapp.dto.AccountDto;
+import com.aurionpro.bankapp.dto.PageResponse;
 
 public interface AccountService {
-	Accounts addAccount(int customerId, Accounts accounts);
+	PageResponse<AccountDto> getAllAccount(int pageNumber, int pageSize);
 }

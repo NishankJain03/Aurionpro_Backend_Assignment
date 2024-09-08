@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -12,30 +13,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.aurionpro.bankapp.dto.UserDto;
+import com.aurionpro.bankapp.dto.LoginDto;
+import com.aurionpro.bankapp.dto.PageResponse;
+import com.aurionpro.bankapp.dto.RegisterDto;
 import com.aurionpro.bankapp.entity.User;
-import com.aurionpro.bankapp.service.UserService;
+import com.aurionpro.bankapp.service.RegisterService;
 
 @RestController
 @RequestMapping("/bankapplication")
-public class UserController {
+public class RegisterController {
 	
 	@Autowired
-	private UserService userService;
+	private RegisterService registerService;
 	
-	@PostMapping("/addUser")
-	public String addUser(@RequestBody User user) {
-		userService.addUser(user);
-		return "User Added Successfully";
+	@PreAuthorize("hasRole('ADMIN')")
+	@GetMapping("/user/getAllUser")
+	public ResponseEntity<PageResponse<RegisterDto>> getAllUser(@RequestParam int pageNumber, @RequestParam int pageSize){
+		return ResponseEntity.ok(registerService.getAllUser(pageNumber, pageSize));
 	}
 	
-	@GetMapping("/getAllUser")
-	public ResponseEntity<List<User>> getAllUser(){
-		return ResponseEntity.ok(userService.getAllUser());
-	}
-
-	@PutMapping("/updateUser")
-	public ResponseEntity<UserDto> updateUser(@RequestParam int userId, @RequestBody UserDto userDto){
-		return ResponseEntity.ok(userService.updateUser(userId, userDto));
-	}
 }

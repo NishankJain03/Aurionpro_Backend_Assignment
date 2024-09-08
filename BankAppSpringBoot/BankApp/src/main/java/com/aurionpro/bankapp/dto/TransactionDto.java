@@ -1,8 +1,9 @@
 package com.aurionpro.bankapp.dto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-import com.aurionpro.bankapp.entity.Accounts;
+import com.aurionpro.bankapp.entity.Account;
 import com.aurionpro.bankapp.entity.TransactionStatus;
 
 import lombok.AllArgsConstructor;
@@ -16,9 +17,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class TransactionDto {
 
-	private Accounts senderAccount;
-	private Accounts receiverAccount;
-	private LocalDate transactionDate;
+	private int transactionId;
+	private long senderAccount;
+	private long receiverAccount;
+	private LocalDateTime transactionDate;
 	private double transactionAmount;	
 	private TransactionStatus transactionStatus;
 }

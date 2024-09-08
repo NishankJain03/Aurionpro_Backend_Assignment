@@ -27,7 +27,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Accounts {
+public class Account {
 	
 	@Column(name = "accountId")
 	@Id
@@ -40,16 +40,18 @@ public class Accounts {
 	@Column(name = "balance")
 	private double balance;
 	
+	@Column(name = "accountStatus")
+	private AccountStatus accountStatus;
+	
 	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "customerId")
 	private Customer customer;
+	
 	
 	@OneToMany(mappedBy = "senderAccount", cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE})
 	private List<Transaction> sentTransactions;
 
 	@OneToMany(mappedBy = "receiverAccount", cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE})
 	private List<Transaction> receivedTransactions;
-	
-	
 }
